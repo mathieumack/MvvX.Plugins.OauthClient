@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{24EB78DB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.Xamarin.Auth", "MvvX.Plugins.Xamarin.Auth\MvvX.Plugins.Xamarin.Auth.csproj", "{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.Xamarin.Auth.Wpf", "MvvX.Plugins.Xamarin.Auth.Wpf\MvvX.Plugins.Xamarin.Auth.Wpf.csproj", "{014DC034-45B2-4FB1-84AA-527896B7796C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.Xamarin.Auth.Droid", "MvvX.Plugins.Xamarin.Auth.Droid\MvvX.Plugins.Xamarin.Auth.Droid.csproj", "{034F879A-72B2-4479-9099-A1634EE896EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.Xamarin.Auth.Touch", "MvvX.Plugins.Xamarin.Auth.Touch\MvvX.Plugins.Xamarin.Auth.Touch.csproj", "{A3963E65-EB2C-467D-87E2-7AB3DF96D979}"
@@ -27,10 +25,6 @@ Global
 		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{014DC034-45B2-4FB1-84AA-527896B7796C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{014DC034-45B2-4FB1-84AA-527896B7796C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{014DC034-45B2-4FB1-84AA-527896B7796C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{014DC034-45B2-4FB1-84AA-527896B7796C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{034F879A-72B2-4479-9099-A1634EE896EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{034F879A-72B2-4479-9099-A1634EE896EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{034F879A-72B2-4479-9099-A1634EE896EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,7 +39,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D} = {D4081965-ECC5-41E8-9E57-A4A28950A28A}
-		{014DC034-45B2-4FB1-84AA-527896B7796C} = {0E9242DC-3C4E-41C4-83DC-716645193B98}
 		{034F879A-72B2-4479-9099-A1634EE896EC} = {0E9242DC-3C4E-41C4-83DC-716645193B98}
 		{A3963E65-EB2C-467D-87E2-7AB3DF96D979} = {0E9242DC-3C4E-41C4-83DC-716645193B98}
 	EndGlobalSection
