@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>MvvX.Plugins.IOAuthClient</id>
+        <version>{BuildNumberVersion}</version>
+        <title>OAuthClient for MvvmCross</title>
+        <authors>MACK Mathieu</authors>
+        <owners>MACK Mathieu</owners>
+        <licenseUrl>https://github.com/mathieumack/MvvX.Plugins.IOauthClient</licenseUrl>
+        <projectUrl>https://github.com/mathieumack/MvvX.Plugins.IOauthClient</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Package for MvvmCross that can let you intgrate an OAuth client</description>
+        <tags>mvvm mvvmcross xamarin monodroid xamarinios OAuth</tags>
+        <dependencies>
+          <group targetFramework="MonoAndroid10">
+            <!-- Always include regardless of target framework -->
+            <dependency id="Xamarin.Auth0Client.Unofficial" version="1.2.11.0-alpha" />
+        </group>
+          <group targetFramework="xamarinios10">
+            <!-- Always include regardless of target framework -->
+            <dependency id="Xamarin.Auth0Client.Unofficial" version="1.2.11.0-alpha" />
+        </group>
+        </dependencies>  
+    </metadata>
+    <files>     
+        <!-- ALL -->
+        <file src="..\MvvX.Plugins.IOAuthClient\bin\Release\MvvX.Plugins.IOAuthClient.XML" target="lib\portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch" />
+        <file src="..\MvvX.Plugins.IOAuthClient\bin\Release\MvvX.Plugins.IOAuthClient.dll" target="lib\portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch" /> -->
+                
+        <!-- Windows (WPF)
+        <file src="..\MvvX.CouchBaseLite\MvvX.Plugins.CouchBaseLite\bin\Release\MvvX.Plugins.CouchBaseLite.XML" target="lib\net45" />
+        <file src="..\MvvX.CouchBaseLite\MvvX.Plugins.CouchBaseLite\bin\Release\MvvX.Plugins.CouchBaseLite.dll" target="lib\net45" />
+        <file src="..\MvvX.CouchBaseLite\MvvX.Plugins.CouchBaseLite.Wpf\bin\Release\MvvX.Plugins.CouchBaseLite.Wpf.dll" target="lib\net45" />
+		<file src="BootstrapContent\CouchBaseLitePluginBootstrap.cs.pp" target="content\net45\Bootstrap\CouchBaseLitePluginBootstrap.cs.pp" /> -->
+		
+        <!-- Android -->
+        <file src="..\MvvX.Plugins.IOAuthClient.Droid\bin\Release\MvvX.Plugins.IOAuthClient.Droid.dll" target="lib\MonoAndroid10" />
+        <file src="..\MvvX.Plugins.IOAuthClient.Droid\bin\Release\MvvX.Plugins.IOAuthClient.Droid.XML" target="lib\MonoAndroid10" />
+        
+        <!-- iOS -->
+        <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\unified\Release\MvvX.Plugins.IOAuthClient.Touch.dll" target="lib\xamarinios10" />
+        <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\unified\Release\MvvX.Plugins.IOAuthClient.Touch.XML" target="lib\xamarinios10" />
+    </files>
+</package>
+

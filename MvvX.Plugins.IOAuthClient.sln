@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{D4081965-ECC5-41E8-9E57-A4A28950A28A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{0E9242DC-3C4E-41C4-83DC-716645193B98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{24EB78DB-1C33-48BF-AD60-3F1E5564379D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.IOAuthClient", "MvvX.Plugins.IOAuthClient\MvvX.Plugins.IOAuthClient.csproj", "{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.IOAuthClient.Droid", "MvvX.Plugins.IOAuthClient.Droid\MvvX.Plugins.IOAuthClient.Droid.csproj", "{034F879A-72B2-4479-9099-A1634EE896EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.IOAuthClient.Touch", "MvvX.Plugins.IOAuthClient.Touch\MvvX.Plugins.IOAuthClient.Touch.csproj", "{A3963E65-EB2C-467D-87E2-7AB3DF96D979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvX.Plugins.IOAuthClient.Sample.Droid", "MvvX.Plugins.IOAuthClient.Sample.Droid\MvvX.Plugins.IOAuthClient.Sample.Droid.csproj", "{6C77D6BE-9049-4594-B7FD-471D26948CD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{034F879A-72B2-4479-9099-A1634EE896EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034F879A-72B2-4479-9099-A1634EE896EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034F879A-72B2-4479-9099-A1634EE896EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034F879A-72B2-4479-9099-A1634EE896EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3963E65-EB2C-467D-87E2-7AB3DF96D979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3963E65-EB2C-467D-87E2-7AB3DF96D979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3963E65-EB2C-467D-87E2-7AB3DF96D979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3963E65-EB2C-467D-87E2-7AB3DF96D979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C77D6BE-9049-4594-B7FD-471D26948CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C77D6BE-9049-4594-B7FD-471D26948CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C77D6BE-9049-4594-B7FD-471D26948CD7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6C77D6BE-9049-4594-B7FD-471D26948CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C77D6BE-9049-4594-B7FD-471D26948CD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C77D6BE-9049-4594-B7FD-471D26948CD7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F35BF06A-B2BC-4211-B25B-C4419B5EAD2D} = {D4081965-ECC5-41E8-9E57-A4A28950A28A}
+		{034F879A-72B2-4479-9099-A1634EE896EC} = {0E9242DC-3C4E-41C4-83DC-716645193B98}
+		{A3963E65-EB2C-467D-87E2-7AB3DF96D979} = {0E9242DC-3C4E-41C4-83DC-716645193B98}
+		{6C77D6BE-9049-4594-B7FD-471D26948CD7} = {24EB78DB-1C33-48BF-AD60-3F1E5564379D}
+	EndGlobalSection
+EndGlobal
