@@ -2,6 +2,7 @@ using Android.App;
 using Android.Content;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Auth;
 
 namespace MvvX.Plugins.IOAuthClient.Droid
@@ -10,7 +11,11 @@ namespace MvvX.Plugins.IOAuthClient.Droid
     {
         #region Fields
 
+        private Account account;
+
         private OAuth2Authenticator auth;
+        private Context context;
+        private string accountStoreKeyName;
 
         public bool AllowCancel
         {
@@ -83,17 +88,21 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
         {
+            this.account = e.Account;
+            if(e.IsAuthenticated)
+                AccountStore.Create(context).Save(e.Account, accountStoreKeyName);
+
             if (Completed != null)
             {
                 this.Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
             }
         }
         
-        event EventHandler<IAuthenticatorErrorEventArgs> Error;
+        public event EventHandler<IAuthenticatorErrorEventArgs> Error;
 
         private void OAuth2Authenticator_Error(object sender, AuthenticatorErrorEventArgs e)
         {
-            if (Completed != null)
+            if (Error != null)
             {
                 this.Error(sender, new PlatformAuthenticatorErrorEventArgs(e));
             }
@@ -103,17 +112,29 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         #region Methods
         
-        public void Start(object parameter, string title)
+        public void Start(string screenTitle)
         {
+            var intent = auth.GetUI(context);
+            context.StartActivity(intent);
+        }
+
+        public void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, Uri redirectUrl)
+        {
+            if (auth != null)
+            {
+                auth.Completed -= OAuth2Authenticator_Completed;
+                auth.Error -= OAuth2Authenticator_Error;
+            }
+
+            this.accountStoreKeyName = accountStoreKeyName;
+
             if (!(parameter is Context))
                 throw new ArgumentException("parameter must be a Context object");
 
-            var intent = auth.GetUI(parameter as Context);
-            (parameter as Context).StartActivity(intent);
-        }
+            this.context = parameter as Context;
 
-        public void New(string clientId, string scope, Uri authorizeUrl, Uri redirectUrl)
-        {
+            LoadAccount();
+
             auth = new OAuth2Authenticator(
                 clientId: clientId,
                 scope: scope,
@@ -124,8 +145,23 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             auth.Error += OAuth2Authenticator_Error;
         }
 
-        public void New(string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl)
+        public void New(object parameter, string accountStoreKeyName, string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl)
         {
+            if (auth != null)
+            {
+                auth.Completed -= OAuth2Authenticator_Completed;
+                auth.Error -= OAuth2Authenticator_Error;
+            }
+
+            this.accountStoreKeyName = accountStoreKeyName;
+
+            if (!(parameter is Context))
+                throw new ArgumentException("parameter must be a Context object");
+
+            this.context = parameter as Context;
+
+            LoadAccount();
+
             auth = new OAuth2Authenticator(
                 clientId: clientId,
                 clientSecret: clientSecret,
@@ -138,10 +174,50 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             auth.Error += OAuth2Authenticator_Error;
         }
 
+        private void LoadAccount()
+        {
+            IEnumerable<Account> accounts = AccountStore.Create(context).FindAccountsForService(accountStoreKeyName);
+            if (accounts != null && accounts.Any())
+                account = accounts.First();
+            else
+                account = null;
+        }
+
         public IOAuth2Request CreateRequest(string method, Uri url, IDictionary<string, string> parameters, IAccount account)
         {
             var request = new OAuth2Request(method, url, parameters, new Account(account.Username, account.Properties, account.Cookies));
             return new PlatformOAuth2Request(request);
+        }
+
+        public IOAuth2Request RefreshToken(Uri refreshTokenUri)
+        {
+            var postDictionary = new Dictionary<string, string>();
+
+            //postDictionary.Add("refresh_token", auth.Properties["refresh_token"]);
+            //postDictionary.Add("client_id", auth.ClientId);
+            //postDictionary.Add("client_secret", auth.ClientSecret);
+            //postDictionary.Add("grant_type", "refresh_token");
+
+            var request = new OAuth2Request("POST", refreshTokenUri, postDictionary, new Account(account.Username, account.Properties, account.Cookies));
+            return new PlatformOAuth2Request(request);
+            //refreshRequest.GetResponseAsync().ContinueWith(task => {
+            //    if (task.IsFaulted)
+            //        Console.WriteLine("Error: " + task.Exception.InnerException.Message);
+            //    else
+            //    {
+            //        string json = task.Result.GetResponseText();
+            //        Console.WriteLine(json);
+            //        try
+            //        {
+            //        << just deserialize the json response, eg. with Newtonsoft>>
+            //        }
+            //        catch (Exception exception)
+            //        {
+            //            Console.WriteLine("!!!!!Exception: {0}", exception.ToString());
+            //            Logout();
+            //        }
+            //    }
+            //});
         }
 
         #endregion

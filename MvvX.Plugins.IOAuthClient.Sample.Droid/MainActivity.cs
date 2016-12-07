@@ -4,6 +4,7 @@ using Android.OS;
 using MvvX.Plugins.IOAuthClient.Droid;
 using System;
 using System.Threading.Tasks;
+using System.Json;
 
 namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 {
@@ -14,13 +15,23 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
         {
             IOAuthClient auth = new PlatformOAuthClient();
 
+            // Google
             auth.New(
-                clientId: "App ID from https://developers.facebook.com/apps",
-                scope: "",
-                authorizeUrl: new Uri("https://m.facebook.com/dialog/oauth/"),
-                redirectUrl: new Uri("http://www.facebook.com/connect/login_success.html"));
+                parameter: this,
+                accountStoreKeyName: "<custom_key>",
+                clientId: "<client_id>",
+                clientSecret: "<client_secret>",
+                scope: "email profile",
+                authorizeUrl: new Uri("<authorize_uri>"),
+                redirectUrl: new Uri("<redirect_uri>"),
+                accessTokenUrl: new Uri("<access_token_uri>"));
 
             auth.AllowCancel = allowCancel;
+
+            auth.Error += (s, ee) =>
+            {
+                Console.WriteLine(ee.Message);
+            };
 
             // If authorization succeeds or is canceled, .Completed will be fired.
             auth.Completed += (s, ee) =>
@@ -33,37 +44,40 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
                     builder.Create().Show();
                     return;
                 }
-
+                
                 //Now that we're logged in, make a OAuth2 request to get the user's info.
-                var request = auth.CreateRequest("GET", new Uri("https://www.googleapis.com/books/v1/volumes?q=lanfeust"), null, ee.Account);
+                var request = auth.RefreshToken(new Uri("<refresh_token_uri>"));
                 request.GetResponseAsync().ContinueWith(t =>
                 {
-                    //var builder = new AlertDialog.Builder (this);
+                    var builder = new AlertDialog.Builder(this);
                     if (t.IsFaulted)
                     {
                         Console.WriteLine("t.faulted");
-                        //builder.SetTitle ("Error");
-                        //builder.SetMessage (t.Exception.Flatten().InnerException.ToString());
+                        builder.SetTitle("Error");
+                        builder.SetMessage(t.Exception.Flatten().InnerException.ToString());
                     }
                     else if (t.IsCanceled)
+                    {
                         Console.WriteLine("t.IsCanceled");
-                    //builder.SetTitle ("Task Canceled");
+                        builder.SetTitle("Task Canceled");
+                    }
                     else
                     {
                         Console.WriteLine("t.IsCanceled");
-                        Console.WriteLine(t.Result.GetResponseText());
-                        //var obj = JsonValue.Parse (t.Result.GetResponseText());
+                        var obj = JsonValue.Parse(t.Result.GetResponseText());
 
-                        //builder.SetTitle ("Request :");
-                        //builder.SetMessage (t.Result.GetResponseText());
+                        builder.SetTitle("Request :");
+                        builder.SetMessage(t.Result.GetResponseText());
                     }
 
-                    //builder.SetPositiveButton ("Ok", (o, e) => { });
-                    //builder.Create().Show();
+                    Console.WriteLine(t.Result.GetResponseText());
+
+                    builder.SetPositiveButton("Ok", (o, e) => { });
+                    builder.Create().Show();
                 }, UIScheduler);
             };
 
-            auth.Start(this, "Xamarin.Auth login");
+            auth.Start("Xamarin.Auth login");
         }
 
         private static readonly TaskScheduler UIScheduler = TaskScheduler.FromCurrentSynchronizationContext();

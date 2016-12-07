@@ -19,18 +19,40 @@ namespace MvvX.Plugins.IOAuthClient
 
         event EventHandler<IAuthenticatorCompletedEventArgs> Completed;
 
+        event EventHandler<IAuthenticatorErrorEventArgs> Error;
+
         /// <summary>
         /// Configuration object.
-        /// For Android : Set an Activity, for iOS : Set a Section object that is the parent object
         /// </summary>
-        /// <param name="parameter"></param>
-        /// <param name="title"></param>
-        void Start(object parameter, string title);
+        /// <param name="screenTitle"></param>
+        void Start(string screenTitle);
 
-        void New(string clientId, string scope, Uri authorizeUrl, Uri redirectUrl); //, GetUsernameAsyncFunc getUsernameAsync = null);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter">For Android : Set an Activity, for iOS : Set a Section object that is the parent object</param>
+        /// <param name="accountStoreKeyName"></param>
+        /// <param name="clientId"></param>
+        /// <param name="scope"></param>
+        /// <param name="authorizeUrl"></param>
+        /// <param name="redirectUrl"></param>
+        void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, Uri redirectUrl); //, GetUsernameAsyncFunc getUsernameAsync = null);
 
-        void New(string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl); //, GetUsernameAsyncFunc getUsernameAsync = null);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter">For Android : Set an Activity, for iOS : Set a Section object that is the parent object</param>
+        /// <param name="accountStoreKeyName"></param>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
+        /// <param name="scope"></param>
+        /// <param name="authorizeUrl"></param>
+        /// <param name="redirectUrl"></param>
+        /// <param name="accessTokenUrl"></param>
+        void New(object parameter, string accountStoreKeyName, string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl); //, GetUsernameAsyncFunc getUsernameAsync = null);
 
         IOAuth2Request CreateRequest(string method, Uri url, IDictionary<string, string> parameters, IAccount account);
+
+        IOAuth2Request RefreshToken(Uri refreshTokenUri);
     }
 }
