@@ -64,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Json" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Validation, Version=2.3.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
@@ -76,9 +77,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomOAuth2Request.cs" />
     <Compile Include="PlatformAccount.cs" />
     <Compile Include="PlatformAuthenticatorCompletedEventArgs.cs" />
     <Compile Include="PlatformAuthenticatorErrorEventArgs.cs" />
+    <Compile Include="PlatformOAuth1Request.cs" />
     <Compile Include="PlatformOAuth2Request.cs" />
     <Compile Include="PlatformOAuthClient.cs" />
     <Compile Include="PlatformResponse.cs" />

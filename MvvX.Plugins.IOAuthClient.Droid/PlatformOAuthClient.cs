@@ -193,12 +193,13 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         {
             var postDictionary = new Dictionary<string, string>();
 
-            //postDictionary.Add("refresh_token", auth.Properties["refresh_token"]);
-            //postDictionary.Add("client_id", auth.ClientId);
+            postDictionary.Add("token", account.Properties["access_token"]);
+            postDictionary.Add("grant_type", "urn:pingidentity.com:oauth2:grant_type:validate_bearer");
             //postDictionary.Add("client_secret", auth.ClientSecret);
             //postDictionary.Add("grant_type", "refresh_token");
 
-            var request = new OAuth2Request("POST", refreshTokenUri, postDictionary, new Account(account.Username, account.Properties, account.Cookies));
+            var request = new CustomOAuth2Request("POST", refreshTokenUri, postDictionary, new Account(account.Username, account.Properties, account.Cookies));
+            request.AccessTokenParameterName = "token";
             return new PlatformOAuth2Request(request);
             //refreshRequest.GetResponseAsync().ContinueWith(task => {
             //    if (task.IsFaulted)

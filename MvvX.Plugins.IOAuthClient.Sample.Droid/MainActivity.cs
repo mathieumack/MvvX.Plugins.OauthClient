@@ -14,18 +14,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
         void Login(bool allowCancel)
         {
             IOAuthClient auth = new PlatformOAuthClient();
-
-            // Google
-            auth.New(
-                parameter: this,
-                accountStoreKeyName: "<custom_key>",
-                clientId: "<client_id>",
-                clientSecret: "<client_secret>",
-                scope: "email profile",
-                authorizeUrl: new Uri("<authorize_uri>"),
-                redirectUrl: new Uri("<redirect_uri>"),
-                accessTokenUrl: new Uri("<access_token_uri>"));
-
+            
             auth.AllowCancel = allowCancel;
 
             auth.Error += (s, ee) =>
@@ -46,7 +35,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
                 }
                 
                 //Now that we're logged in, make a OAuth2 request to get the user's info.
-                var request = auth.RefreshToken(new Uri("<refresh_token_uri>"));
+                var request = auth.RefreshToken(new Uri("<set_uri>"));
                 request.GetResponseAsync().ContinueWith(t =>
                 {
                     var builder = new AlertDialog.Builder(this);
