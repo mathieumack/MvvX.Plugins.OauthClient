@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Net.Http.Headers;
 using System.IO;
-using System.Net;
-using MvvmCross.Platform;
 
-namespace MvvX.Plugins.IOAuthClient.Droid
+namespace MvvX.Plugins.IOAuthClient.Wpf
 {
     public class CustomOAuth2Request : OAuth2Request
     {
@@ -49,13 +47,13 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             var req = GetPreparedWebRequest();
 
             var parameters = Parameters.FormEncode();
-            Mvx.Trace("Parameters : " + parameters);
+            Console.WriteLine("Parameters : " + parameters);
             //
             // Authorize it
             //
             var authorization = GetAuthorizationHeaderBasic(Account);
 
-            Mvx.Trace("GetResponseAsync : AuthorizationHeader - " + authorization);
+            Console.WriteLine("GetResponseAsync : AuthorizationHeader - " + authorization);
 
             req.Headers.Authorization = AuthenticationHeaderValue.Parse(authorization);
 
@@ -64,7 +62,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         public override void AddMultipartData(string name, Stream data, string mimeType = "", string filename = "")
         {
-            Mvx.Trace("AddMultipartData : name - " + name);
+            Console.WriteLine("AddMultipartData : name - " + name);
             base.AddMultipartData(name, data, mimeType, filename);
         }
 

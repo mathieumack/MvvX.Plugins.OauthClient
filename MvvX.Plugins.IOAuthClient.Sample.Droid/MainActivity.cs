@@ -5,6 +5,8 @@ using MvvX.Plugins.IOAuthClient.Droid;
 using System;
 using System.Threading.Tasks;
 using System.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 {
@@ -14,13 +16,22 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
         void Login(bool allowCancel)
         {
             IOAuthClient auth = new PlatformOAuthClient();
-            
-            auth.AllowCancel = allowCancel;
 
-            auth.Error += (s, ee) =>
-            {
-                Console.WriteLine(ee.Message);
-            };
+            auth.New(this,
+                        "temporaryKey",
+                        "<client_id>",
+                        "<client_secret>",
+                        "",
+                        new Uri("<authorization_uri>"),
+                        new Uri("<redirect_uri>"),
+                        new Uri("<token_uri>"));
+
+            auth.AllowCancel = true;
+
+            //auth.Error += (s, ee) =>
+            //{
+            //    Console.WriteLine(ee.Message);
+            //};
 
             // If authorization succeeds or is canceled, .Completed will be fired.
             auth.Completed += (s, ee) =>
@@ -33,37 +44,15 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
                     builder.Create().Show();
                     return;
                 }
-                
-                //Now that we're logged in, make a OAuth2 request to get the user's info.
-                var request = auth.RefreshToken(new Uri("<set_uri>"));
-                request.GetResponseAsync().ContinueWith(t =>
+
+                else
                 {
                     var builder = new AlertDialog.Builder(this);
-                    if (t.IsFaulted)
-                    {
-                        Console.WriteLine("t.faulted");
-                        builder.SetTitle("Error");
-                        builder.SetMessage(t.Exception.Flatten().InnerException.ToString());
-                    }
-                    else if (t.IsCanceled)
-                    {
-                        Console.WriteLine("t.IsCanceled");
-                        builder.SetTitle("Task Canceled");
-                    }
-                    else
-                    {
-                        Console.WriteLine("t.IsCanceled");
-                        var obj = JsonValue.Parse(t.Result.GetResponseText());
-
-                        builder.SetTitle("Request :");
-                        builder.SetMessage(t.Result.GetResponseText());
-                    }
-
-                    Console.WriteLine(t.Result.GetResponseText());
-
+                    builder.SetMessage("Authenticated, well done");
                     builder.SetPositiveButton("Ok", (o, e) => { });
                     builder.Create().Show();
-                }, UIScheduler);
+                    return;
+                }
             };
 
             auth.Start("Xamarin.Auth login");

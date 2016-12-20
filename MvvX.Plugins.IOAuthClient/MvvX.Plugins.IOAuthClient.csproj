@@ -42,6 +42,7 @@
     <Compile Include="IOAuth2Request.cs" />
     <Compile Include="IOAuthClient.cs" />
     <Compile Include="IResponse.cs" />
+    <Compile Include="PluginLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

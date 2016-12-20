@@ -51,11 +51,12 @@ namespace MvvX.Plugins.IOauthClient.Sample.Touch
         {
             IOAuthClient.IOAuthClient auth = new PlatformOAuthClient();
 
-            auth.New(
-                clientId: "App ID from https://developers.facebook.com/apps",
-                scope: "",
-                authorizeUrl: new Uri("https://m.facebook.com/dialog/oauth/"),
-                redirectUrl: new Uri("http://www.facebook.com/connect/login_success.html"));
+            auth.New(facebook,
+                        "temporaryKey",
+                        clientId: "App ID from https://developers.facebook.com/apps",
+                        scope: "",
+                        authorizeUrl: new Uri("https://m.facebook.com/dialog/oauth/"),
+                        redirectUrl: new Uri("http://www.facebook.com/connect/login_success.html"));
 
             auth.AllowCancel = allowCancel;
 
@@ -89,7 +90,7 @@ namespace MvvX.Plugins.IOauthClient.Sample.Touch
                 }, uiScheduler);
             };
 
-            auth.Start(facebook, "Facebook login");
+            auth.Start("Facebook login");
         }
 
         private readonly TaskScheduler uiScheduler = TaskScheduler.FromCurrentSynchronizationContext();

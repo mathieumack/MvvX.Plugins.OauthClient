@@ -1,11 +1,11 @@
-using Android.App;
-using Android.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Navigation;
 using Xamarin.Auth;
 
-namespace MvvX.Plugins.IOAuthClient.Droid
+namespace MvvX.Plugins.IOAuthClient.Wpf
 {
     public class PlatformOAuthClient : IOAuthClient
     {
@@ -13,8 +13,11 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         private Account account;
 
-        private OAuth2Authenticator auth;
-        private Context context;
+        public bool AuthorizationSuccess { get; set; }
+
+        private CustomOAuth2Authenticator auth;
+        private Window window;
+        private OAuthLogonWebView webBrowserCtl;
         private string accountStoreKeyName;
 
         public bool AllowCancel
@@ -30,18 +33,18 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             }
         }
 
-        public string AccessTokenName
-        {
-            get
-            {
-                return auth.AccessTokenName;
-            }
+        //public string AccessTokenName
+        //{
+        //    get
+        //    {
+        //        return auth.AccessTokenName;
+        //    }
 
-            set
-            {
-                auth.AccessTokenName = value;
-            }
-        }
+        //    set
+        //    {
+        //        auth.AccessTokenName = value;
+        //    }
+        //}
 
         public string ClientId
         {
@@ -59,26 +62,26 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             }
         }
 
-        public bool DoNotEscapeScope
-        {
-            get
-            {
-                return auth.DoNotEscapeScope;
-            }
+        //public bool DoNotEscapeScope
+        //{
+        //    get
+        //    {
+        //        return auth.DoNotEscapeScope;
+        //    }
 
-            set
-            {
-                auth.DoNotEscapeScope = value;
-            }
-        }
+        //    set
+        //    {
+        //        auth.DoNotEscapeScope = value;
+        //    }
+        //}
 
-        public Dictionary<string, string> RequestParameters
-        {
-            get
-            {
-                return auth.RequestParameters;
-            }
-        }
+        //public Dictionary<string, string> RequestParameters
+        //{
+        //    get
+        //    {
+        //        return auth.RequestParameters;
+        //    }
+        //}
 
         #endregion
 
@@ -89,13 +92,21 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
         {
             this.account = e.Account;
-            if(e.IsAuthenticated)
-                AccountStore.Create(context).Save(e.Account, accountStoreKeyName);
+            //if(e.IsAuthenticated)
+            //    AccountStore.Create().Save(e.Account, accountStoreKeyName);
 
             if (Completed != null)
             {
                 this.Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
             }
+
+            if(!AuthorizationSuccess)
+            {
+                // We need to show authrorization access page :
+                webBrowserCtl.CheckAuthorization();
+            }
+            else
+                window.Close();
         }
         
         public event EventHandler<IAuthenticatorErrorEventArgs> Error;
@@ -106,6 +117,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             {
                 this.Error(sender, new PlatformAuthenticatorErrorEventArgs(e));
             }
+            window.Close();
         }
 
         #endregion
@@ -114,8 +126,36 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         
         public void Start(string screenTitle)
         {
-            var intent = auth.GetUI(context);
-            context.StartActivity(intent);
+            webBrowserCtl = new OAuthLogonWebView(auth);
+
+            webBrowserCtl.Browser.Navigating += webBrowser_Navigating;
+            webBrowserCtl.Browser.Navigated += webBrowser_Navigated;
+
+            window = new Window
+            {
+                Title = screenTitle,
+                Content = webBrowserCtl,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                MaxWidth=400,
+                MaxHeight = 600,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                ResizeMode = ResizeMode.NoResize,
+                WindowStyle = WindowStyle.None
+            };
+
+            window.ShowDialog();
+        }
+        
+        private void webBrowser_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            Console.WriteLine(">> webBrowser_Navigating : " + e.Uri.ToString());
+            //auth.OnPageLoading(e.Uri);
+        }
+
+        private void webBrowser_Navigated(object sender, NavigationEventArgs e)
+        {
+            Console.WriteLine(">> webBrowser_Navigated : " + e.Uri.ToString());
+            auth.OnPageLoaded(e.Uri);
         }
 
         public void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, Uri redirectUrl)
@@ -127,19 +167,14 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             }
 
             this.accountStoreKeyName = accountStoreKeyName;
-
-            if (!(parameter is Context))
-                throw new ArgumentException("parameter must be a Context object");
-
-            this.context = parameter as Context;
-
+            
             LoadAccount();
 
-            auth = new OAuth2Authenticator(
-                clientId: clientId,
-                scope: scope,
-                authorizeUrl: authorizeUrl,
-                redirectUrl: redirectUrl);
+            auth = new CustomOAuth2Authenticator(
+                            clientId: clientId,
+                            scope: scope,
+                            authorizeUrl: authorizeUrl,
+                            redirectUrl: redirectUrl);
 
             auth.Completed += OAuth2Authenticator_Completed;
             auth.Error += OAuth2Authenticator_Error;
@@ -154,15 +189,10 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             }
 
             this.accountStoreKeyName = accountStoreKeyName;
-
-            if (!(parameter is Context))
-                throw new ArgumentException("parameter must be a Context object");
-
-            this.context = parameter as Context;
-
+            
             LoadAccount();
 
-            auth = new OAuth2Authenticator(
+            auth = new CustomOAuth2Authenticator(
                 clientId: clientId,
                 clientSecret: clientSecret,
                 scope: scope,
@@ -176,10 +206,10 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         private void LoadAccount()
         {
-            IEnumerable<Account> accounts = AccountStore.Create(context).FindAccountsForService(accountStoreKeyName);
-            if (accounts != null && accounts.Any())
-                account = accounts.First();
-            else
+            //IEnumerable<Account> accounts = AccountStore.Create().FindAccountsForService(accountStoreKeyName);
+            //if (accounts != null && accounts.Any())
+            //    account = accounts.First();
+            //else
                 account = null;
         }
 

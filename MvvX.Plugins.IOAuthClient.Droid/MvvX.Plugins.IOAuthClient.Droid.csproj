@@ -33,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\MvvX.Plugins.IOAuthClient.Droid.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Auth0Client.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -85,6 +86,7 @@
     <Compile Include="PlatformOAuth2Request.cs" />
     <Compile Include="PlatformOAuthClient.cs" />
     <Compile Include="PlatformResponse.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

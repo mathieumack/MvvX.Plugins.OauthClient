@@ -162,38 +162,13 @@ namespace MvvX.Plugins.IOAuthClient.Touch
             return new PlatformOAuth2Request(request);
         }
 
-        public IOAuth2Request RefreshToken(Uri refreshTokenUri)
+        public IOAuth2Request CreateRequest(string method, string accessTokenParameterName, Uri url, IDictionary<string, string> parameters, IAccount account)
         {
-            var postDictionary = new Dictionary<string, string>();
-
-            //Wich refresh token ?
-            //postDictionary.Add("refresh_token", googleAccount.Properties["refresh_token"]);
-            postDictionary.Add("client_id", auth.ClientId);
-            postDictionary.Add("client_secret", auth.ClientSecret);
-            postDictionary.Add("grant_type", "refresh_token");
-
-            var request = new OAuth2Request("POST", refreshTokenUri, postDictionary, null);
+            var request = new OAuth2Request(method, url, parameters, new Account(account.Username, account.Properties, account.Cookies));
+            request.AccessTokenParameterName = accessTokenParameterName;
             return new PlatformOAuth2Request(request);
-            //refreshRequest.GetResponseAsync().ContinueWith(task => {
-            //    if (task.IsFaulted)
-            //        Console.WriteLine("Error: " + task.Exception.InnerException.Message);
-            //    else
-            //    {
-            //        string json = task.Result.GetResponseText();
-            //        Console.WriteLine(json);
-            //        try
-            //        {
-            //        << just deserialize the json response, eg. with Newtonsoft>>
-            //        }
-            //        catch (Exception exception)
-            //        {
-            //            Console.WriteLine("!!!!!Exception: {0}", exception.ToString());
-            //            Logout();
-            //        }
-            //    }
-            //});
         }
-
+        
         #endregion
     }
 }

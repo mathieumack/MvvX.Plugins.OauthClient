@@ -7,15 +7,15 @@ namespace MvvX.Plugins.IOAuthClient
     {
         bool AllowCancel { get; set; }
 
-        string AccessTokenName { get; set; }
+        //string AccessTokenName { get; set; }
 
         string ClientId { get; }
 
         string ClientSecret { get; }
 
-        bool DoNotEscapeScope { get; set; }
+        //bool DoNotEscapeScope { get; set; }
 
-        Dictionary<string, string> RequestParameters { get; }
+        //Dictionary<string, string> RequestParameters { get; }
 
         event EventHandler<IAuthenticatorCompletedEventArgs> Completed;
 
@@ -53,6 +53,6 @@ namespace MvvX.Plugins.IOAuthClient
 
         IOAuth2Request CreateRequest(string method, Uri url, IDictionary<string, string> parameters, IAccount account);
 
-        IOAuth2Request RefreshToken(Uri refreshTokenUri);
+        IOAuth2Request CreateRequest(string method, string accessTokenParameterName, Uri url, IDictionary<string, string> parameters, IAccount account);
     }
 }
