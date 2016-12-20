@@ -35,22 +35,22 @@
     <files>     
         <!-- ALL -->
         <file src="..\MvvX.Plugins.IOAuthClient\bin\Release\MvvX.Plugins.IOAuthClient.XML" target="lib\portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch" />
-        <file src="..\MvvX.Plugins.IOAuthClient\bin\Release\MvvX.Plugins.IOAuthClient.dll" target="lib\portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch" /> -->
+        <file src="..\MvvX.Plugins.IOAuthClient\bin\Release\MvvX.Plugins.IOAuthClient.dll" target="lib\portable-net45+sl5+wp8+wpa81+win8+monoandroid+monotouch" />
                 
         <!-- Windows (WPF) -->
         <file src="..\MvvX.Plugins.IOAuthClient.Wpf\bin\Release\MvvX.Plugins.IOAuthClient.Wpf.dll" target="lib\net45" />
         <file src="..\MvvX.Plugins.IOAuthClient.Wpf\bin\Release\MvvX.Plugins.IOAuthClient.Wpf.XML" target="lib\net45" />
-		<file src="BootstrapContent\OAuthPluginBootstrap.cs.cs.pp" target="content\net45\Bootstrap\OAuthPluginBootstrap.cs.cs.pp" />
+		<file src="BootstrapContent\OAuthPluginBootstrap.cs.pp" target="content\net45\Bootstrap\OAuthPluginBootstrap.cs.pp" />
 		
         <!-- Android -->
         <file src="..\MvvX.Plugins.IOAuthClient.Droid\bin\Release\MvvX.Plugins.IOAuthClient.Droid.dll" target="lib\MonoAndroid10" />
         <file src="..\MvvX.Plugins.IOAuthClient.Droid\bin\Release\MvvX.Plugins.IOAuthClient.Droid.XML" target="lib\MonoAndroid10" />
-		<file src="BootstrapContent\OAuthPluginBootstrap.cs.cs.pp" target="content\MonoAndroid10\Bootstrap\OAuthPluginBootstrap.cs.cs.pp" />
+		<file src="BootstrapContent\OAuthPluginBootstrap.cs.pp" target="content\MonoAndroid10\Bootstrap\OAuthPluginBootstrap.cs.pp" />
         
         <!-- iOS -->
         <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\unified\Release\MvvX.Plugins.IOAuthClient.Touch.dll" target="lib\xamarinios10" />
         <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\unified\Release\MvvX.Plugins.IOAuthClient.Touch.XML" target="lib\xamarinios10" />
-		<file src="BootstrapContent\OAuthPluginBootstrap.cs.cs.pp" target="content\xamarinios10\Bootstrap\OAuthPluginBootstrap.cs.cs.pp" />
+		<file src="BootstrapContent\OAuthPluginBootstrap.cs.pp" target="content\xamarinios10\Bootstrap\OAuthPluginBootstrap.cs.pp" />
     </files>
 </package>
 
