@@ -110,7 +110,7 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         public void Start(string title)
         {
             if (!(parameter is UIViewController))
-                throw new ArgumentException("parameter must be a Section object");
+                throw new ArgumentException("parameter must be a UIViewController object");
 
             UIViewController vc = auth.GetUI();
             (parameter as UIViewController).PresentViewController(vc, true, null);
