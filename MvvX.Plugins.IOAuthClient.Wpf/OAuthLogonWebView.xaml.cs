@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace MvvX.Plugins.IOAuthClient.Wpf
@@ -22,7 +21,6 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         public OAuthLogonWebView(CustomOAuth2Authenticator platformOAuthClient)
         {
             this.platformOAuthClient = platformOAuthClient;
-
             InitializeComponent();
 
             this.Loaded += (object sender, RoutedEventArgs e) =>

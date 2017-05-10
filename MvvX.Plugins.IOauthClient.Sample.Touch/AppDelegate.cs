@@ -1,9 +1,9 @@
-﻿using Foundation;
-using MonoTouch.Dialog;
-using MvvX.Plugins.IOAuthClient.Touch;
-using System;
+﻿using System;
 using System.Json;
 using System.Threading.Tasks;
+using Foundation;
+using MonoTouch.Dialog;
+using MvvX.Plugins.IOAuthClient.Touch;
 using UIKit;
 
 namespace MvvX.Plugins.IOauthClient.Sample.Touch
@@ -40,7 +40,7 @@ namespace MvvX.Plugins.IOauthClient.Sample.Touch
             dialog = new DialogViewController(new RootElement("Xamarin.Auth Sample") {
                 facebook,
             });
-            
+
             Window.RootViewController = new UINavigationController(dialog);
             Window.MakeKeyAndVisible();
 
@@ -51,7 +51,7 @@ namespace MvvX.Plugins.IOauthClient.Sample.Touch
         {
             IOAuthClient.IOAuthClient auth = new PlatformOAuthClient();
 
-            auth.New(facebook,
+            auth.New(dialog,
                         "temporaryKey",
                         clientId: "App ID from https://developers.facebook.com/apps",
                         scope: "",
@@ -75,7 +75,8 @@ namespace MvvX.Plugins.IOauthClient.Sample.Touch
 
                 // Now that we're logged in, make a OAuth2 request to get the user's info.
                 var request = auth.CreateRequest("GET", new Uri("https://graph.facebook.com/me"), null, e.Account);
-                request.GetResponseAsync().ContinueWith(t => {
+                request.GetResponseAsync().ContinueWith(t =>
+                {
                     if (t.IsFaulted)
                         facebookStatus.Caption = "Error: " + t.Exception.InnerException.Message;
                     else if (t.IsCanceled)
