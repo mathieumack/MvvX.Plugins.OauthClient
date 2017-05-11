@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
  <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>MvvX.Plugins.IOAuthClient</id>
+        <id>MvvX.Plugins.OAuthClient</id>
         <version>{BuildNumberVersion}</version>
         <title>OAuthClient for MvvmCross</title>
         <authors>MACK Mathieu</authors>
@@ -50,7 +50,7 @@
         <!-- iOS -->
         <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\unified\Release\MvvX.Plugins.IOAuthClient.Touch.dll" target="lib\xamarinios10" />
         <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\unified\Release\MvvX.Plugins.IOAuthClient.Touch.XML" target="lib\xamarinios10" />
-		<file src="BootstrapContent\OAuthPluginBootstrap.cs.pp" target="content\xamarinios10\Bootstrap\OAuthPluginBootstrap.cs.pp" />
+		<file src="BootstrapContentTouch\OAuthPluginBootstrap.cs.pp" target="content\xamarinios10\Bootstrap\OAuthPluginBootstrap.cs.pp" />
     </files>
 </package>
 
