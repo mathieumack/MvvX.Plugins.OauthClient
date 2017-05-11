@@ -46,7 +46,7 @@
 		<file src="BootstrapContent\OAuthPluginBootstrap.cs.pp" target="content\MonoAndroid10\Bootstrap\OAuthPluginBootstrap.cs.pp" />
         
         <!-- iOS -->
-        <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\Release\Release\MvvX.Plugins.IOAuthClient.Touch.dll" target="lib\xamarinios10" />
+        <file src="..\MvvX.Plugins.IOAuthClient.Touch\bin\Release\MvvX.Plugins.IOAuthClient.Touch.dll" target="lib\xamarinios10" />
 		<file src="BootstrapContentTouch\OAuthPluginBootstrap.cs.pp" target="content\xamarinios10\Bootstrap\OAuthPluginBootstrap.cs.pp" />
     </files>
 </package>
