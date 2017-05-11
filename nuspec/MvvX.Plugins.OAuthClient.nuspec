@@ -2,7 +2,7 @@
  <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>MvvX.Plugins.OAuthClient</id>
-        <version>{BuildNumberVersion}</version>
+        <version>1.0.0.0</version>
         <title>OAuthClient for MvvmCross</title>
         <authors>MACK Mathieu</authors>
         <owners>MACK Mathieu</owners>
