@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Navigation;
 using Xamarin.Auth;
@@ -86,7 +85,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         #endregion
 
         #region Events
-        
+
         public event EventHandler<IAuthenticatorCompletedEventArgs> Completed;
 
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
@@ -100,15 +99,15 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
                 this.Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
             }
 
-            if(!AuthorizationSuccess)
+            if (!AuthorizationSuccess)
             {
                 // We need to show authrorization access page :
                 webBrowserCtl.CheckAuthorization();
             }
-            else
-                window.Close();
+
+            window.Close();
         }
-        
+
         public event EventHandler<IAuthenticatorErrorEventArgs> Error;
 
         private void OAuth2Authenticator_Error(object sender, AuthenticatorErrorEventArgs e)
@@ -123,7 +122,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         #endregion
 
         #region Methods
-        
+
         public void Start(string screenTitle)
         {
             webBrowserCtl = new OAuthLogonWebView(auth);
@@ -136,16 +135,18 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
                 Title = screenTitle,
                 Content = webBrowserCtl,
                 SizeToContent = SizeToContent.WidthAndHeight,
-                MaxWidth=400,
+                MaxWidth = 400,
                 MaxHeight = 600,
+                Padding = new Thickness(0),
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 ResizeMode = ResizeMode.NoResize,
-                WindowStyle = WindowStyle.None
+                WindowStyle = (this.AllowCancel ? WindowStyle.ToolWindow : WindowStyle.None),
+
             };
 
             window.ShowDialog();
         }
-        
+
         private void webBrowser_Navigating(object sender, NavigatingCancelEventArgs e)
         {
             Console.WriteLine(">> webBrowser_Navigating : " + e.Uri.ToString());
@@ -167,7 +168,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             }
 
             this.accountStoreKeyName = accountStoreKeyName;
-            
+
             LoadAccount();
 
             auth = new CustomOAuth2Authenticator(
@@ -189,7 +190,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             }
 
             this.accountStoreKeyName = accountStoreKeyName;
-            
+
             LoadAccount();
 
             auth = new CustomOAuth2Authenticator(
@@ -210,7 +211,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             //if (accounts != null && accounts.Any())
             //    account = accounts.First();
             //else
-                account = null;
+            account = null;
         }
 
         public IOAuth2Request CreateRequest(string method, Uri url, IDictionary<string, string> parameters, IAccount account)
@@ -225,7 +226,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             request.AccessTokenParameterName = accessTokenParameterName;
             return new PlatformOAuth2Request(request);
         }
-        
+
         #endregion
     }
 }

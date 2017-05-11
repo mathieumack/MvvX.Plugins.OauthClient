@@ -1,4 +1,3 @@
-using MonoTouch.Dialog;
 using System;
 using System.Collections.Generic;
 using UIKit;
@@ -13,6 +12,8 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         private IAccount account;
 
         private OAuth2Authenticator auth;
+
+        private object parameter;
 
         public bool AllowCancel
         {
@@ -80,7 +81,7 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         #endregion
 
         #region Events
-        
+
         public event EventHandler<IAuthenticatorCompletedEventArgs> Completed;
 
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
@@ -105,19 +106,15 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         #endregion
 
         #region Methods
-        
-        DialogViewController dialog;
 
         public void Start(string title)
         {
-            //if (!(parameter is Section))
-            //    throw new ArgumentException("parameter must be a Section object");
+            if (!(parameter is UIViewController))
+                throw new ArgumentException("parameter must be a UIViewController object");
 
-            //dialog = new DialogViewController(new RootElement(title) {
-            //    parameter as Section,
-            //});
             UIViewController vc = auth.GetUI();
-            dialog.PresentViewController(vc, true, null);
+            (parameter as UIViewController).PresentViewController(vc, true, null);
+
         }
 
         public void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, Uri redirectUrl)
@@ -135,6 +132,8 @@ namespace MvvX.Plugins.IOAuthClient.Touch
 
             auth.Completed += OAuth2Authenticator_Completed;
             auth.Error += OAuth2Authenticator_Error;
+
+            this.parameter = parameter;
         }
 
         public void New(object parameter, string accountStoreKeyName, string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl)
@@ -154,6 +153,8 @@ namespace MvvX.Plugins.IOAuthClient.Touch
 
             auth.Completed += OAuth2Authenticator_Completed;
             auth.Error += OAuth2Authenticator_Error;
+
+            this.parameter = parameter;
         }
 
         public IOAuth2Request CreateRequest(string method, Uri url, IDictionary<string, string> parameters, IAccount account)
@@ -168,7 +169,7 @@ namespace MvvX.Plugins.IOAuthClient.Touch
             request.AccessTokenParameterName = accessTokenParameterName;
             return new PlatformOAuth2Request(request);
         }
-        
+
         #endregion
     }
 }

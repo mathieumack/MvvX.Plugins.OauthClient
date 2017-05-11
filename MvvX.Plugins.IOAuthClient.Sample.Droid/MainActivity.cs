@@ -26,12 +26,17 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
                         new Uri("<redirect_uri>"),
                         new Uri("<token_uri>"));
 
+
             auth.AllowCancel = true;
 
-            //auth.Error += (s, ee) =>
-            //{
-            //    Console.WriteLine(ee.Message);
-            //};
+            auth.Error += (s, ee) =>
+            {
+                var builder = new AlertDialog.Builder(this);
+                builder.SetMessage(ee.Message);
+                builder.SetPositiveButton("Ok", (o, e) => { });
+                builder.Create().Show();
+                return;
+            };
 
             // If authorization succeeds or is canceled, .Completed will be fired.
             auth.Completed += (s, ee) =>

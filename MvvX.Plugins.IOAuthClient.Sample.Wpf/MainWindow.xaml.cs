@@ -1,6 +1,6 @@
-﻿using MvvX.Plugins.IOAuthClient.Wpf;
-using System;
+﻿using System;
 using System.Windows;
+using MvvX.Plugins.IOAuthClient.Wpf;
 
 namespace MvvX.Plugins.IOAuthClient.Sample.Wpf
 {
@@ -19,15 +19,13 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Wpf
             IOAuthClient auth = new PlatformOAuthClient();
 
             auth.New(this,
-                        "temporaryKey",
-                        "<client_id>",
-                        "<client_secret>",
-                        "",
-                        new Uri("<authorization_uri>"),
-                        new Uri("<redirect_uri>"),
-                        new Uri("<token_uri>"));
+                         "temporaryKey",
+                         clientId: "<ClientID>",
+                         scope: "<scope>",
+                         authorizeUrl: new Uri("<AuthorizeUrl>"),
+                         redirectUrl: new Uri("<RedirectUrl>"));
 
-            auth.AllowCancel = true;
+            auth.AllowCancel = false;
 
             //auth.Error += (s, ee) =>
             //{
