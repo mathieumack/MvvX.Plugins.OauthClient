@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Net;
 using Xamarin.Auth;
@@ -10,12 +9,15 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         #region Fields
 
         private readonly Account account;
-        
+
         public Dictionary<string, string> Properties
         {
             get
             {
-                return account.Properties;
+                if (account == null)
+                    return null;
+                else
+                    return account.Properties;
             }
         }
 
@@ -23,7 +25,10 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         {
             get
             {
-                return account.Username;
+                if (account == null)
+                    return null;
+                else
+                    return account.Username;
             }
 
             set
@@ -36,7 +41,10 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         {
             get
             {
-                return account.Cookies;
+                if (account == null)
+                    return null;
+                else
+                    return account.Cookies;
             }
         }
 

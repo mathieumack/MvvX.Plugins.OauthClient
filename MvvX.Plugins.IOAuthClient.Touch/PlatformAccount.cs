@@ -14,7 +14,10 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         {
             get
             {
-                return account.Properties;
+                if (account == null)
+                    return null;
+                else
+                    return account.Properties;
             }
         }
 
@@ -22,7 +25,10 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         {
             get
             {
-                return account.Username;
+                if (account == null)
+                    return null;
+                else
+                    return account.Username;
             }
 
             set
@@ -35,7 +41,10 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         {
             get
             {
-                return account.Cookies;
+                if (account == null)
+                    return null;
+                else
+                    return account.Cookies;
             }
         }
 
