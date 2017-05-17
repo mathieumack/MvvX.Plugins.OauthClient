@@ -1,8 +1,7 @@
-using Android.App;
-using Android.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Android.Content;
 using Xamarin.Auth;
 
 namespace MvvX.Plugins.IOAuthClient.Droid
@@ -83,13 +82,13 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         #endregion
 
         #region Events
-        
+
         public event EventHandler<IAuthenticatorCompletedEventArgs> Completed;
 
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
         {
             this.account = e.Account;
-            if(e.IsAuthenticated)
+            if (e.IsAuthenticated)
                 AccountStore.Create(context).Save(e.Account, accountStoreKeyName);
 
             if (Completed != null)
@@ -97,7 +96,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
                 this.Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
             }
         }
-        
+
         public event EventHandler<IAuthenticatorErrorEventArgs> Error;
 
         private void OAuth2Authenticator_Error(object sender, AuthenticatorErrorEventArgs e)
@@ -111,7 +110,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         #endregion
 
         #region Methods
-        
+
         public void Start(string screenTitle)
         {
             var intent = auth.GetUI(context);
@@ -195,7 +194,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             request.AccessTokenParameterName = accessTokenParameterName;
             return new PlatformOAuth2Request(request);
         }
-        
+
         #endregion
     }
 }
