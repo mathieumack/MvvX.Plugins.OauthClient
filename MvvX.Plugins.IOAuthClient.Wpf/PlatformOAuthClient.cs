@@ -91,8 +91,6 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
         {
             this.account = e.Account;
-            //if(e.IsAuthenticated)
-            //    AccountStore.Create().Save(e.Account, accountStoreKeyName);
 
             if (Completed != null)
             {
