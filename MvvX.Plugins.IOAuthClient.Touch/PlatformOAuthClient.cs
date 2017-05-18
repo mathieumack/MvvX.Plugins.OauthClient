@@ -15,6 +15,8 @@ namespace MvvX.Plugins.IOAuthClient.Touch
 
         private object parameter;
 
+        private UIViewController viewController;
+
         public bool AllowCancel
         {
             get
@@ -87,10 +89,12 @@ namespace MvvX.Plugins.IOAuthClient.Touch
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
         {
             this.account = new PlatformAccount(e.Account);
+
             if (Completed != null)
             {
                 this.Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
             }
+            viewController.DismissViewController(true, null);
         }
 
         public event EventHandler<IAuthenticatorErrorEventArgs> Error;
@@ -112,8 +116,8 @@ namespace MvvX.Plugins.IOAuthClient.Touch
             if (!(parameter is UIViewController))
                 throw new ArgumentException("parameter must be a UIViewController object");
 
-            UIViewController vc = auth.GetUI();
-            (parameter as UIViewController).PresentViewController(vc, true, null);
+            viewController = auth.GetUI();
+            (parameter as UIViewController).PresentViewController(viewController, true, null);
 
         }
 
