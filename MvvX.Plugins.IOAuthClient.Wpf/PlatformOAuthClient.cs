@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Windows;
 using System.Windows.Navigation;
 using Xamarin.Auth;
@@ -128,18 +129,34 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             webBrowserCtl.Browser.Navigating += webBrowser_Navigating;
             webBrowserCtl.Browser.Navigated += webBrowser_Navigated;
 
+            int maxWidth = 400;
+            int maxHeight = 600;
+
+            if (!string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["MvvX.Plugins.IOAuthClient.Wpf.Window.MaxWidth"]))
+            {
+                int settingsWidth;
+                if (int.TryParse(ConfigurationManager.AppSettings["MvvX.Plugins.IOAuthClient.Wpf.Window.MaxWidth"], out settingsWidth))
+                    maxWidth = settingsWidth;
+            }
+
+            if (!string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["MvvX.Plugins.IOAuthClient.Wpf.Window.MaxHeight"]))
+            {
+                int settingsHeight;
+                if (int.TryParse(ConfigurationManager.AppSettings["MvvX.Plugins.IOAuthClient.Wpf.Window.MaxHeight"], out settingsHeight))
+                    maxHeight = settingsHeight;
+            }
+
             window = new Window
             {
                 Title = screenTitle,
                 Content = webBrowserCtl,
                 SizeToContent = SizeToContent.WidthAndHeight,
-                MaxWidth = 400,
-                MaxHeight = 600,
+                MaxWidth = maxWidth,
+                MaxHeight = maxHeight,
                 Padding = new Thickness(0),
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                ResizeMode = ResizeMode.NoResize,
-                WindowStyle = (this.AllowCancel ? WindowStyle.ToolWindow : WindowStyle.None),
-
+                ResizeMode = ResizeMode.CanResizeWithGrip,
+                WindowStyle = (this.AllowCancel ? WindowStyle.ToolWindow : WindowStyle.None)
             };
 
             window.ShowDialog();
