@@ -25,7 +25,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Wpf
                          authorizeUrl: new Uri("<AuthorizeUrl>"),
                          redirectUrl: new Uri("<RedirectUrl>"));
 
-            auth.AllowCancel = false;
+            auth.AllowCancel = true;
 
             //auth.Error += (s, ee) =>
             //{
