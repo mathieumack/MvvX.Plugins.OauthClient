@@ -390,6 +390,8 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         {
             var query = queryValues.FormEncode();
 
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
             var req = WebRequest.Create(accessTokenUrl);
             req.Method = "POST";
             var body = Encoding.UTF8.GetBytes(query);
