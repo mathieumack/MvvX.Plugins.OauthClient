@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Windows;
 using MvvX.Plugins.IOAuthClient.Wpf;
 
@@ -16,8 +17,9 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Wpf
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            IOAuthClient auth = new PlatformOAuthClient();
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
+            IOAuthClient auth = new PlatformOAuthClient();
             auth.New(this,
                          "temporaryKey",
                          clientId: "<ClientID>",

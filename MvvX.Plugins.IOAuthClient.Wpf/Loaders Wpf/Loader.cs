@@ -5,13 +5,16 @@ using Microsoft.Expression.Media;
 
 namespace MvvX.Plugins.IOAuthClient.Wpf
 {
-    public class ChromeLoader : Control
+    /// <summary>
+    /// Source code : https://github.com/MrMitch/WPF-Loaders.git​​​​​​​
+    /// </summary>
+    public class Loader : Control
     {
         #region IsIndeterminate
         public static readonly DependencyProperty IsIndeterminateProperty = DependencyProperty.Register(
             "IsIndeterminate",
             typeof(bool),
-            typeof(ChromeLoader),
+            typeof(Loader),
             new PropertyMetadata(default(bool))
         );
 
@@ -26,7 +29,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         public static readonly DependencyProperty ThicknessUnitProperty = DependencyProperty.Register(
             "ThicknessUnit",
             typeof(UnitType),
-            typeof(ChromeLoader),
+            typeof(Loader),
             new PropertyMetadata(default(UnitType))
         );
 
@@ -41,7 +44,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         public static readonly DependencyProperty ThicknessProperty = DependencyProperty.Register(
             "Thickness",
             typeof(double),
-            typeof(ChromeLoader),
+            typeof(Loader),
             new PropertyMetadata(default(double))
         );
 
@@ -55,7 +58,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         #region Fill
         public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
             "Fill", typeof(Brush),
-            typeof(ChromeLoader),
+            typeof(Loader),
             new PropertyMetadata(default(Brush))
         );
 
@@ -67,9 +70,9 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         #endregion
 
 
-        static ChromeLoader()
+        static Loader()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(ChromeLoader), new FrameworkPropertyMetadata(typeof(ChromeLoader)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(Loader), new FrameworkPropertyMetadata(typeof(Loader)));
         }
     }
 }

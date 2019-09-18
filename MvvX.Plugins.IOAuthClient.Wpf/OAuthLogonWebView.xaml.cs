@@ -19,7 +19,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             }
         }
 
-        public ChromeLoader Loader
+        public Loader Loader
         {
             get
             {

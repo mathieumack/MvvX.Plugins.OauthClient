@@ -5,6 +5,9 @@ using System.Windows.Media;
 
 namespace MvvX.Plugins.IOAuthClient.Wpf
 {
+    /// <summary>
+    /// Source code : https://github.com/MrMitch/WPF-Loaders.git​​​​​​​
+    /// </summary>
     internal class ColorNuanceConverter : IValueConverter
     {
         public int Nuance { get; set; }

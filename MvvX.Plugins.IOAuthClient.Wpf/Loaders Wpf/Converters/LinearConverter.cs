@@ -5,6 +5,7 @@ using System.Windows.Data;
 namespace MvvX.Plugins.IOAuthClient.Wpf
 {
     /// <summary>
+    /// Source code : https://github.com/MrMitch/WPF-Loaders.git​​​​​​​
     /// Applies a linear function to the value passed as a parameter.
     /// f(x) = a*x + b
     /// </summary>
