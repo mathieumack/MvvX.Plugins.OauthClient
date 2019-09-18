@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace MvvX.Plugins.IOAuthClient.Wpf
@@ -18,9 +19,20 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             }
         }
 
+        public Loader Loader
+        {
+            get
+            {
+                return loader;
+            }
+        }
+
         public OAuthLogonWebView(CustomOAuth2Authenticator platformOAuthClient)
         {
             this.platformOAuthClient = platformOAuthClient;
+            this.platformOAuthClient.TokenAccessReceived -= OnTokenAccessReceived;
+            this.platformOAuthClient.TokenAccessReceived += OnTokenAccessReceived;
+
             InitializeComponent();
 
             this.Loaded += (object sender, RoutedEventArgs e) =>
@@ -40,14 +52,13 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             };
         }
 
-        internal void CheckAuthorization()
+        private void OnTokenAccessReceived(object sender, EventArgs e)
         {
-            //Create the destination URL
-            var getUriTask = platformOAuthClient.GetAuthorizationUrlAsync();
-            getUriTask.Wait();
-
-            var destinationURL = getUriTask.Result;
-            webBrowser.Navigate(destinationURL);
+            if (sender is CustomOAuth2Authenticator)
+            {
+                this.webBrowser.Visibility = Visibility.Hidden;
+                this.loader.Visibility = Visibility.Visible;
+            }
         }
 
         //private System.IntPtr WebBrowser_MessageHook(System.IntPtr hwnd, int msg, System.IntPtr wParam, System.IntPtr lParam, ref bool handled)

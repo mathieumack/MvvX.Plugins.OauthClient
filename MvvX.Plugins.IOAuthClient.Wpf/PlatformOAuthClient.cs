@@ -12,9 +12,6 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         #region Fields
 
         private Account account;
-
-        public bool AuthorizationSuccess { get; set; }
-
         private CustomOAuth2Authenticator auth;
         private Window window;
         private OAuthLogonWebView webBrowserCtl;
@@ -96,12 +93,6 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             if (Completed != null)
             {
                 this.Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
-            }
-
-            if (!AuthorizationSuccess)
-            {
-                // We need to show authrorization access page :
-                webBrowserCtl.CheckAuthorization();
             }
 
             window.Close();

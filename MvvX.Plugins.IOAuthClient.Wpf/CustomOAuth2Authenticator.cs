@@ -87,6 +87,8 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             get { return this.accessTokenUrl; }
         }
 
+        public event EventHandler TokenAccessReceived;
+
         /// <summary>
         /// Initializes a new <see cref="Xamarin.Auth.OAuth2Authenticator"/>
         /// that authenticates using implicit granting (token).
@@ -399,6 +401,10 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             {
                 s.Write(body, 0, body.Length);
             }
+
+            // Indicates that the Access_Token has been retrieved
+            TokenAccessReceived?.Invoke(this, new EventArgs());
+
             return req.GetResponseAsync().ContinueWith(task => {
                 var text = task.Result.GetResponseText();
 
