@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{D4081965-ECC5-41E8-9E57-A4A28950A28A}"
 EndProject
@@ -227,5 +227,8 @@ Global
 		{68E4B712-65DB-40D1-A578-6705DF99A8E7} = {24EB78DB-1C33-48BF-AD60-3F1E5564379D}
 		{456191A8-1F1E-4A4A-97A2-5F141131B325} = {24EB78DB-1C33-48BF-AD60-3F1E5564379D}
 		{C31D883F-8A19-433C-BA68-8A43E9BB4E5C} = {0E9242DC-3C4E-41C4-83DC-716645193B98}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA8E44C3-0800-47BE-9F86-50AEACFCE135}
 	EndGlobalSection
 EndGlobal
