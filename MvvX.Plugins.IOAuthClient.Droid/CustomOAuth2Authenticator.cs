@@ -16,11 +16,9 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         /// <param name="authorizeUrl"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="getUsernameAsync"></param>
-        /// <param name="ignoreErrorsWhenCompleted"></param>
-        public CustomOAuth2Authenticator(string clientId, string scope, Uri authorizeUrl, Uri redirectUrl, bool ignoreErrorsWhenCompleted, GetUsernameAsyncFunc getUsernameAsync = null)
+        public CustomOAuth2Authenticator(string clientId, string scope, Uri authorizeUrl, Uri redirectUrl, GetUsernameAsyncFunc getUsernameAsync = null)
             : base(clientId, scope, authorizeUrl, redirectUrl, getUsernameAsync)
         {
-            IgnoreErrorsWhenCompleted = ignoreErrorsWhenCompleted;
         }
 
         /// <summary>
@@ -33,11 +31,10 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         /// <param name="redirectUrl"></param>
         /// <param name="accessTokenUrl"></param>
         /// <param name="getUsernameAsync"></param>
-        /// <param name="ignoreErrorsWhenCompleted"></param>
-        public CustomOAuth2Authenticator(string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl, bool ignoreErrorsWhenCompleted, GetUsernameAsyncFunc getUsernameAsync = null)
+        public CustomOAuth2Authenticator(string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl, GetUsernameAsyncFunc getUsernameAsync = null)
             : base(clientId, clientSecret, scope, authorizeUrl, redirectUrl, accessTokenUrl, getUsernameAsync)
         {
-            IgnoreErrorsWhenCompleted = ignoreErrorsWhenCompleted;
+            IgnoreErrorsWhenCompleted = true;
         }
     }
 }

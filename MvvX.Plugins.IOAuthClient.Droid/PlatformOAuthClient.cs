@@ -15,7 +15,6 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         private CustomOAuth2Authenticator auth;
         private Context context;
         private string accountStoreKeyName;
-        private readonly bool ignoreErrorsWhenCompleted;
 
         public bool AllowCancel
         {
@@ -110,19 +109,6 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         #endregion
 
-        #region Constructor
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="ignoreErrorsWhenCompleted"></param>
-        public PlatformOAuthClient(bool ignoreErrorsWhenCompleted = false)
-        {
-            this.ignoreErrorsWhenCompleted = ignoreErrorsWhenCompleted;
-        }
-
-        #endregion
-
         #region Methods
 
         public void Start(string screenTitle)
@@ -152,8 +138,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
                 clientId: clientId,
                 scope: scope,
                 authorizeUrl: authorizeUrl,
-                redirectUrl: redirectUrl,
-                ignoreErrorsWhenCompleted: ignoreErrorsWhenCompleted);
+                redirectUrl: redirectUrl);
 
             auth.Completed += OAuth2Authenticator_Completed;
             auth.Error += OAuth2Authenticator_Error;
@@ -182,8 +167,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
                 scope: scope,
                 authorizeUrl: authorizeUrl,
                 redirectUrl: redirectUrl,
-                accessTokenUrl: accessTokenUrl,
-                ignoreErrorsWhenCompleted: ignoreErrorsWhenCompleted);
+                accessTokenUrl: accessTokenUrl);
 
             auth.Completed += OAuth2Authenticator_Completed;
             auth.Error += OAuth2Authenticator_Error;
