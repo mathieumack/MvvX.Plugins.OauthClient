@@ -1,19 +1,18 @@
-﻿using Android.App;
-using Android.Widget;
+﻿using System;
+using Android.App;
 using Android.OS;
+using Android.Support.Design.Widget;
+using Android.Support.V7.App;
+using Android.Views;
 using MvvX.Plugins.IOAuthClient.Droid;
-using System;
-using System.Threading.Tasks;
-using System.Json;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 {
-    [Activity(Label = "MvvX.Plugins.IOAuthClient.Sample.Droid", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    public class MainActivity : AppCompatActivity
     {
-        void Login(bool allowCancel)
+
+        void Login()
         {
             IOAuthClient auth = new PlatformOAuthClient();
 
@@ -26,12 +25,11 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
                         new Uri("<redirect_uri>"),
                         new Uri("<token_uri>"));
 
-
             auth.AllowCancel = true;
 
             auth.Error += (s, ee) =>
             {
-                var builder = new AlertDialog.Builder(this);
+                var builder = new Android.App.AlertDialog.Builder(this);
                 builder.SetMessage(ee.Message);
                 builder.SetPositiveButton("Ok", (o, e) => { });
                 builder.Create().Show();
@@ -43,7 +41,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
             {
                 if (!ee.IsAuthenticated)
                 {
-                    var builder = new AlertDialog.Builder(this);
+                    var builder = new Android.App.AlertDialog.Builder(this);
                     builder.SetMessage("Not Authenticated");
                     builder.SetPositiveButton("Ok", (o, e) => { });
                     builder.Create().Show();
@@ -52,7 +50,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 
                 else
                 {
-                    var builder = new AlertDialog.Builder(this);
+                    var builder = new Android.App.AlertDialog.Builder(this);
                     builder.SetMessage("Authenticated, well done");
                     builder.SetPositiveButton("Ok", (o, e) => { });
                     builder.Create().Show();
@@ -63,19 +61,38 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
             auth.Start("Xamarin.Auth login");
         }
 
-        private static readonly TaskScheduler UIScheduler = TaskScheduler.FromCurrentSynchronizationContext();
-
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Main);
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.activity_main);
 
-            var facebook = FindViewById<Button>(Resource.Id.FacebookButton);
-            facebook.Click += delegate { Login(true); };
+            Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
 
-            var facebookNoCancel = FindViewById<Button>(Resource.Id.FacebookButtonNoCancel);
-            facebookNoCancel.Click += delegate { Login(false); };
+            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
+            fab.Click += FabOnClick;
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+            return true;
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            int id = item.ItemId;
+            if (id == Resource.Id.action_settings)
+            {
+                return true;
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+
+        private void FabOnClick(object sender, EventArgs eventArgs)
+        {
+            Login();
         }
     }
 }
-
