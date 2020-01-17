@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomOAuth2Authenticator.cs" />
     <Compile Include="CustomOAuth2Request.cs" />
     <Compile Include="PlatformAccount.cs" />
     <Compile Include="PlatformAuthenticatorCompletedEventArgs.cs" />
