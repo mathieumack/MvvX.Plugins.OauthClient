@@ -36,7 +36,7 @@
     <DocumentationFile>bin\Release\MvvX.Plugins.IOAuthClient.Droid.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Auth0Client.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <Reference Include="Auth0Client.Android, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Auth0Client.Unofficial.1.2.11.0-alpha\lib\MonoAndroid10\Auth0Client.Android.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomOAuth2Authenticator.cs" />
     <Compile Include="CustomOAuth2Request.cs" />
     <Compile Include="PlatformAccount.cs" />
     <Compile Include="PlatformAuthenticatorCompletedEventArgs.cs" />
