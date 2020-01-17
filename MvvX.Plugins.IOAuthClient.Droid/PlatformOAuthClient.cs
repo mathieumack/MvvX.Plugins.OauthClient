@@ -12,7 +12,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         private Account account;
 
-        private OAuth2Authenticator auth;
+        private CustomOAuth2Authenticator auth;
         private Context context;
         private string accountStoreKeyName;
 
@@ -87,13 +87,13 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         private void OAuth2Authenticator_Completed(object sender, AuthenticatorCompletedEventArgs e)
         {
-            this.account = e.Account;
+            account = e.Account;
             if (e.IsAuthenticated)
                 AccountStore.Create(context).Save(e.Account, accountStoreKeyName);
 
             if (Completed != null)
             {
-                this.Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
+                Completed(sender, new PlatformAuthenticatorCompletedEventArgs(e));
             }
         }
 
@@ -103,7 +103,7 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         {
             if (Error != null)
             {
-                this.Error(sender, new PlatformAuthenticatorErrorEventArgs(e));
+                Error(sender, new PlatformAuthenticatorErrorEventArgs(e));
             }
         }
 
@@ -130,11 +130,11 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             if (!(parameter is Context))
                 throw new ArgumentException("parameter must be a Context object");
 
-            this.context = parameter as Context;
+            context = parameter as Context;
 
             LoadAccount();
 
-            auth = new OAuth2Authenticator(
+            auth = new CustomOAuth2Authenticator(
                 clientId: clientId,
                 scope: scope,
                 authorizeUrl: authorizeUrl,
@@ -157,11 +157,11 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             if (!(parameter is Context))
                 throw new ArgumentException("parameter must be a Context object");
 
-            this.context = parameter as Context;
+            context = parameter as Context;
 
             LoadAccount();
 
-            auth = new OAuth2Authenticator(
+            auth = new CustomOAuth2Authenticator(
                 clientId: clientId,
                 clientSecret: clientSecret,
                 scope: scope,
