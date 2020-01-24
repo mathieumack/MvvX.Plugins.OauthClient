@@ -12,7 +12,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         #region Fields
 
         private Account account;
-        private CustomOAuth2Authenticator auth;
+        private OAuth2AuthenticatorBase auth;
         private Window window;
         private OAuthLogonWebView webBrowserCtl;
         private string accountStoreKeyName;
@@ -30,19 +30,6 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             }
         }
 
-        //public string AccessTokenName
-        //{
-        //    get
-        //    {
-        //        return auth.AccessTokenName;
-        //    }
-
-        //    set
-        //    {
-        //        auth.AccessTokenName = value;
-        //    }
-        //}
-
         public string ClientId
         {
             get
@@ -50,35 +37,6 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
                 return auth.ClientId;
             }
         }
-
-        public string ClientSecret
-        {
-            get
-            {
-                return auth.ClientSecret;
-            }
-        }
-
-        //public bool DoNotEscapeScope
-        //{
-        //    get
-        //    {
-        //        return auth.DoNotEscapeScope;
-        //    }
-
-        //    set
-        //    {
-        //        auth.DoNotEscapeScope = value;
-        //    }
-        //}
-
-        //public Dictionary<string, string> RequestParameters
-        //{
-        //    get
-        //    {
-        //        return auth.RequestParameters;
-        //    }
-        //}
 
         #endregion
 
@@ -210,6 +168,25 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             auth.Completed += OAuth2Authenticator_Completed;
             auth.Error += OAuth2Authenticator_Error;
         }
+
+          public void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl,string loginRelativeUri, string tokenRelativeUri, Uri redirectUrl)
+        {
+            if (auth != null)
+            {
+                auth.Completed -= OAuth2Authenticator_Completed;
+                auth.Error -= OAuth2Authenticator_Error;
+            }
+
+            this.accountStoreKeyName = accountStoreKeyName;
+
+            LoadAccount();
+
+            auth = new PkceExplicitFlowAuthenticator(clientId, scope, authorizeUrl, loginRelativeUri, tokenRelativeUri, redirectUrl);
+
+            auth.Completed += OAuth2Authenticator_Completed;
+            auth.Error += OAuth2Authenticator_Error;
+        }
+
 
         private void LoadAccount()
         {

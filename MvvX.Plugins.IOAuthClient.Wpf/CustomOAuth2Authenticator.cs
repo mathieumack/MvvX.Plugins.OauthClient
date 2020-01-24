@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,74 +8,12 @@ using Xamarin.Utilities;
 
 namespace MvvX.Plugins.IOAuthClient.Wpf
 {
-    public class CustomOAuth2Authenticator : WebRedirectAuthenticator
+    public class CustomOAuth2Authenticator : OAuth2AuthenticatorBase
     {
-        string clientId;
-        string clientSecret;
-        string scope;
-        Uri authorizeUrl;
-        Uri accessTokenUrl;
-        Uri redirectUrl;
-        GetUsernameAsyncFunc getUsernameAsync;
-        //string accessTokenName = ;
-        string requestState;
-        bool reportedForgery = false;
-        //public string AccessTokenName
-        //{
-        //    get
-        //    {
-        //        return accessTokenName;
-        //    }
-        //    set
-        //    {
-        //        accessTokenName = value;
-        //    }
-        //}
-
-        /// <summary>
-        /// Gets the redirect URL.
-        /// </summary>
-        /// <value>The redirect URL.</value>
-        public Uri RedirectUrl
-        {
-            get { return this.redirectUrl; }
-        }
-
-        /// <summary>
-        /// Gets the client identifier.
-        /// </summary>
-        /// <value>The client identifier.</value>
-        public string ClientId
-        {
-            get { return this.clientId; }
-        }
-
-        /// <summary>
-        /// Gets the client secret.
-        /// </summary>
-        /// <value>The client secret.</value>
-        public string ClientSecret
-        {
-            get { return this.clientSecret; }
-        }
-
-        /// <summary>
-        /// Gets the authorization scope.
-        /// </summary>
-        /// <value>The authorization scope.</value>
-        public string Scope
-        {
-            get { return this.scope; }
-        }
-
-        /// <summary>
-        /// Gets the authorize URL.
-        /// </summary>
-        /// <value>The authorize URL.</value>
-        public Uri AuthorizeUrl
-        {
-            get { return this.authorizeUrl; }
-        }
+        private readonly GetUsernameAsyncFunc getUsernameAsync;
+        private readonly string requestState;
+        private bool reportedForgery = false;
+        private bool IsImplicit { get { return AccessTokenUrl == null; } }
 
         /// <summary>
         /// Gets the access token URL.
@@ -84,10 +21,13 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         /// <value>The URL used to request access tokens after an authorization code was received.</value>
         public Uri AccessTokenUrl
         {
-            get { return this.accessTokenUrl; }
+            get; protected set;
         }
 
-        public event EventHandler TokenAccessReceived;
+        public string ClientSecret
+        {
+            get; protected set;
+        }
 
         /// <summary>
         /// Initializes a new <see cref="Xamarin.Auth.OAuth2Authenticator"/>
@@ -110,30 +50,20 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         /// after it has been successfully authenticated.
         /// </param>
         public CustomOAuth2Authenticator(string clientId, string scope, Uri authorizeUrl, Uri redirectUrl, GetUsernameAsyncFunc getUsernameAsync = null)
-			: this (redirectUrl)
-		{
-            if (string.IsNullOrEmpty(clientId))
-            {
-                throw new ArgumentException("clientId must be provided", "clientId");
-            }
-            this.clientId = clientId;
-
-            this.scope = scope ?? "";
-
+            : this(clientId, scope, authorizeUrl, redirectUrl, null, null)
+        {
             if (authorizeUrl == null)
             {
                 throw new ArgumentNullException("authorizeUrl");
             }
-            this.authorizeUrl = authorizeUrl;
-
             if (redirectUrl == null)
             {
                 throw new ArgumentNullException("redirectUrl");
             }
-            this.redirectUrl = redirectUrl;
-            this.getUsernameAsync = getUsernameAsync;
 
-            this.accessTokenUrl = null;
+            ClientId = clientId;
+            AccessTokenUrl = null;
+            this.getUsernameAsync = getUsernameAsync;
         }
 
         /// <summary>
@@ -163,50 +93,26 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         /// after it has been successfully authenticated.
         /// </param>
         public CustomOAuth2Authenticator(string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl, GetUsernameAsyncFunc getUsernameAsync = null)
-			: this (redirectUrl, clientSecret, accessTokenUrl)
-		{
-            if (string.IsNullOrEmpty(clientId))
-            {
-                throw new ArgumentException("clientId must be provided", "clientId");
-            }
-            this.clientId = clientId;
-
+            : this(clientId, scope, redirectUrl, redirectUrl, clientSecret, accessTokenUrl)
+        {
             if (string.IsNullOrEmpty(clientSecret))
             {
                 throw new ArgumentException("clientSecret must be provided", "clientSecret");
             }
-            this.clientSecret = clientSecret;
-
-            this.scope = scope ?? "";
-
-            if (authorizeUrl == null)
-            {
-                throw new ArgumentNullException("authorizeUrl");
-            }
-            this.authorizeUrl = authorizeUrl;
-
-            if (redirectUrl == null)
-            {
-                throw new ArgumentNullException("redirectUrl");
-            }
-            this.redirectUrl = redirectUrl;
 
             if (accessTokenUrl == null)
             {
                 throw new ArgumentNullException("accessTokenUrl");
             }
-            this.accessTokenUrl = accessTokenUrl;
 
             this.getUsernameAsync = getUsernameAsync;
         }
 
-
-        CustomOAuth2Authenticator(Uri redirectUrl, string clientSecret = null, Uri accessTokenUrl = null)
-			: base (redirectUrl, redirectUrl)
-		{
-            this.clientSecret = clientSecret;
-
-            this.accessTokenUrl = accessTokenUrl;
+        private CustomOAuth2Authenticator(string clientId, string scope, Uri authorizeUrl, Uri redirectUrl, string clientSecret = null, Uri accessTokenUrl = null)
+            : base(clientId, scope, authorizeUrl, redirectUrl)
+        {
+            ClientSecret = clientSecret;
+            AccessTokenUrl = accessTokenUrl;
 
             //
             // Generate a unique state string to check for forgeries
@@ -217,10 +123,8 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             {
                 chars[i] = (char)rand.Next((int)'a', (int)'z' + 1);
             }
-            this.requestState = new string(chars);
+            requestState = new string(chars);
         }
-
-        bool IsImplicit { get { return accessTokenUrl == null; } }
 
         /// <summary>
         /// Method that returns the initial URL to be displayed in the web browser.
@@ -232,11 +136,11 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         {
             var url = new Uri(string.Format(
                 "{0}?client_id={1}&redirect_uri={2}&response_type={3}&scope={4}&state={5}",
-                authorizeUrl.AbsoluteUri,
-                Uri.EscapeDataString(clientId),
+                BaseUri.AbsoluteUri,
+                Uri.EscapeDataString(ClientId),
                 Uri.EscapeDataString(RedirectUrl.AbsoluteUri),
                 IsImplicit ? "token" : "code",
-                Uri.EscapeDataString(scope),
+                Uri.EscapeDataString(Scope),
                 Uri.EscapeDataString(requestState)));
 
             var tcs = new TaskCompletionSource<Uri>();
@@ -254,11 +158,11 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         {
             var url = new Uri(string.Format(
                                     "{0}?client_id={1}&redirect_uri={2}&response_type={3}&scope={4}&state={5}",
-                                    authorizeUrl.AbsoluteUri,
-                                    Uri.EscapeDataString(clientId),
+                                    BaseUri.AbsoluteUri,
+                                    Uri.EscapeDataString(ClientId),
                                     Uri.EscapeDataString(RedirectUrl.AbsoluteUri),
                                     IsImplicit ? "token" : "code",
-                                    Uri.EscapeDataString(scope),
+                                    Uri.EscapeDataString(Scope),
                                     Uri.EscapeDataString(requestState)));
 
             var tcs = new TaskCompletionSource<Uri>();
@@ -335,7 +239,8 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
                 if (query.ContainsKey("code"))
                 {
                     var code = query["code"];
-                    RequestAccessTokenAsync(code).ContinueWith(task => {
+                    RequestAccessTokenAsync(code).ContinueWith(task =>
+                    {
                         if (task.IsFaulted)
                         {
                             OnError(task.Exception);
@@ -367,17 +272,17 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         /// </returns>
         /// <param name='code'>The authorization code.</param>
         /// <remarks>Implements: http://tools.ietf.org/html/rfc6749#section-4.1</remarks>
-        Task<IDictionary<string, string>> RequestAccessTokenAsync(string code)
+        private Task<IDictionary<string, string>> RequestAccessTokenAsync(string code)
         {
             var queryValues = new Dictionary<string, string> {
                 { "grant_type", "authorization_code" },
                 { "code", code },
                 { "redirect_uri", RedirectUrl.AbsoluteUri },
-                { "client_id", clientId },
+                { "client_id", ClientId },
             };
-            if (!string.IsNullOrEmpty(clientSecret))
+            if (!string.IsNullOrEmpty(ClientSecret))
             {
-                queryValues["client_secret"] = clientSecret;
+                queryValues["client_secret"] = ClientSecret;
             }
 
             return RequestAccessTokenAsync(queryValues);
@@ -392,7 +297,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
         {
             var query = queryValues.FormEncode();
 
-            var req = WebRequest.Create(accessTokenUrl);
+            var req = WebRequest.Create(AccessTokenUrl);
             req.Method = "POST";
             var body = Encoding.UTF8.GetBytes(query);
             req.ContentLength = body.Length;
@@ -403,9 +308,10 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             }
 
             // Indicates that the Access_Token has been retrieved
-            TokenAccessReceived?.Invoke(this, new EventArgs());
+            OnTokenReceived(new EventArgs());
 
-            return req.GetResponseAsync().ContinueWith(task => {
+            return req.GetResponseAsync().ContinueWith(task =>
+            {
                 var text = task.Result.GetResponseText();
 
                 // Parse the response
@@ -439,7 +345,8 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             //
             if (getUsernameAsync != null)
             {
-                getUsernameAsync(accountProperties).ContinueWith(task => {
+                getUsernameAsync(accountProperties).ContinueWith(task =>
+                {
                     if (task.IsFaulted)
                     {
                         OnError(task.Exception);

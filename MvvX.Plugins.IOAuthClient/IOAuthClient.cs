@@ -11,8 +11,6 @@ namespace MvvX.Plugins.IOAuthClient
 
         string ClientId { get; }
 
-        string ClientSecret { get; }
-
         //bool DoNotEscapeScope { get; set; }
 
         //Dictionary<string, string> RequestParameters { get; }
@@ -50,6 +48,19 @@ namespace MvvX.Plugins.IOAuthClient
         /// <param name="redirectUrl"></param>
         /// <param name="accessTokenUrl"></param>
         void New(object parameter, string accountStoreKeyName, string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl); //, GetUsernameAsyncFunc getUsernameAsync = null);
+
+        /// <summary>
+        /// Instanciates a PKCE flow authentication
+        /// </summary>
+        /// <param name="parameter">The parameter.</param>
+        /// <param name="accountStoreKeyName">Name of the account store key.</param>
+        /// <param name="clientId">The client identifier.</param>
+        /// <param name="scope">The scope.</param>
+        /// <param name="authorizeUrl">The authorize URL.</param>
+        /// <param name="loginRelativeUri">The login relative URI.</param>
+        /// <param name="tokenRelativeUri">The token relative URI.</param>
+        /// <param name="redirectUrl">The redirect URL.</param>
+        void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, string loginRelativeUri, string tokenRelativeUri, Uri redirectUrl);
 
         IOAuth2Request CreateRequest(string method, Uri url, IDictionary<string, string> parameters, IAccount account);
 

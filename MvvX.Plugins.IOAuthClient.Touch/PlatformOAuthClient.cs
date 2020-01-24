@@ -174,6 +174,11 @@ namespace MvvX.Plugins.IOAuthClient.Touch
             return new PlatformOAuth2Request(request);
         }
 
+        public void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, string loginRelativeUri, string tokenRelativeUri, Uri redirectUrl)
+        {
+            throw new NotImplementedException("Authorization code with Pkce is not implemented for this device");
+        }
+
         #endregion
     }
 }

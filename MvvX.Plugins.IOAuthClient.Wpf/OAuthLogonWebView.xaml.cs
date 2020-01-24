@@ -9,7 +9,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
     /// </summary>
     public partial class OAuthLogonWebView : UserControl
     {
-        private readonly CustomOAuth2Authenticator platformOAuthClient;
+        private readonly OAuth2AuthenticatorBase platformOAuthClient;
 
         public WebBrowser Browser
         {
@@ -27,7 +27,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
             }
         }
 
-        public OAuthLogonWebView(CustomOAuth2Authenticator platformOAuthClient)
+        public OAuthLogonWebView(OAuth2AuthenticatorBase platformOAuthClient)
         {
             this.platformOAuthClient = platformOAuthClient;
             this.platformOAuthClient.TokenAccessReceived -= OnTokenAccessReceived;
@@ -54,7 +54,7 @@ namespace MvvX.Plugins.IOAuthClient.Wpf
 
         private void OnTokenAccessReceived(object sender, EventArgs e)
         {
-            if (sender is CustomOAuth2Authenticator)
+            if (sender is OAuth2AuthenticatorBase)
             {
                 this.webBrowser.Visibility = Visibility.Hidden;
                 this.loader.Visibility = Visibility.Visible;

@@ -101,9 +101,11 @@
     <Compile Include="CustomOAuth2Authenticator.cs" />
     <Compile Include="CustomOAuth2Request.cs" />
     <Compile Include="Loaders Wpf\Converters\LinearConverter.cs" />
+    <Compile Include="OAuth2AuthenticatorBase.cs" />
     <Compile Include="OAuthLogonWebView.xaml.cs">
       <DependentUpon>OAuthLogonWebView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PkceExplicitFlowAuthenticator.cs" />
     <Compile Include="PlatformAccount.cs" />
     <Compile Include="PlatformAuthenticatorCompletedEventArgs.cs" />
     <Compile Include="PlatformAuthenticatorErrorEventArgs.cs" />
