@@ -15,7 +15,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 {
 	
 	
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
 		
@@ -46,8 +46,8 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 		public partial class Drawable
 		{
 			
-			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			// aapt resource value: 0x7F010000
+			public const int Icon = 2130771968;
 			
 			static Drawable()
 			{
@@ -62,11 +62,11 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int FacebookButton = 2131034112;
+			// aapt resource value: 0x7F020000
+			public const int FacebookButton = 2130837504;
 			
-			// aapt resource value: 0x7f050001
-			public const int FacebookButtonNoCancel = 2131034113;
+			// aapt resource value: 0x7F020001
+			public const int FacebookButtonNoCancel = 2130837505;
 			
 			static Id()
 			{
@@ -81,7 +81,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 		public partial class Layout
 		{
 			
-			// aapt resource value: 0x7f030000
+			// aapt resource value: 0x7F030000
 			public const int Main = 2130903040;
 			
 			static Layout()
@@ -97,17 +97,17 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7F040000
+			public const int ApplicationName = 2130968576;
 			
-			// aapt resource value: 0x7f040002
-			public const int Facebook = 2130968578;
+			// aapt resource value: 0x7F040001
+			public const int Facebook = 2130968577;
 			
-			// aapt resource value: 0x7f040003
-			public const int FacebookNoCancel = 2130968579;
+			// aapt resource value: 0x7F040002
+			public const int FacebookNoCancel = 2130968578;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7F040003
+			public const int Hello = 2130968579;
 			
 			static String()
 			{

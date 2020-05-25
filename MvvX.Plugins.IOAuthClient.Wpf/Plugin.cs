@@ -1,13 +1,14 @@
-﻿using MvvmCross.Platform;
-using MvvmCross.Platform.Plugins;
+﻿using MvvmCross;
+using MvvmCross.Plugin;
 
 namespace MvvX.Plugins.IOAuthClient.Wpf
 {
+    [MvxPlugin]
     public class Plugin : IMvxPlugin
     {
         public void Load()
         {
-            Mvx.RegisterSingleton<IOAuthClient>(new PlatformOAuthClient());
+            Mvx.IoCProvider.RegisterSingleton<IOAuthClient>(new PlatformOAuthClient());
         }
     }
 }
