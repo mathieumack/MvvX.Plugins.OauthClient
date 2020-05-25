@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Xamarin.Auth;
-using System.Threading.Tasks;
-using System.Threading;
-using System.Net.Http.Headers;
 using System.IO;
-using System.Net;
-using MvvmCross.Platform;
+using System.Net.Http.Headers;
+using System.Threading;
+using System.Threading.Tasks;
+using Xamarin.Auth;
 
 namespace MvvX.Plugins.IOAuthClient.Droid
 {
@@ -22,8 +20,8 @@ namespace MvvX.Plugins.IOAuthClient.Droid
         /// </param>
         /// <param name='account'>The account used to authenticate this request.</param>
         public CustomOAuth2Request(string method, Uri url, IDictionary<string, string> parameters, Account account)
-			: base (method, url, parameters, account)
-		{
+            : base(method, url, parameters, account)
+        {
         }
 
         /// <summary>
@@ -48,14 +46,10 @@ namespace MvvX.Plugins.IOAuthClient.Droid
             //
             var req = GetPreparedWebRequest();
 
-            var parameters = Parameters.FormEncode();
-            Mvx.Trace("Parameters : " + parameters);
             //
             // Authorize it
             //
             var authorization = GetAuthorizationHeaderBasic(Account);
-
-            Mvx.Trace("GetResponseAsync : AuthorizationHeader - " + authorization);
 
             req.Headers.Authorization = AuthenticationHeaderValue.Parse(authorization);
 
@@ -64,95 +58,94 @@ namespace MvvX.Plugins.IOAuthClient.Droid
 
         public override void AddMultipartData(string name, Stream data, string mimeType = "", string filename = "")
         {
-            Mvx.Trace("AddMultipartData : name - " + name);
             base.AddMultipartData(name, data, mimeType, filename);
         }
 
-  //      /// <summary>
-		///// Gets the response.
-		///// </summary>
-		///// <remarks>
-		///// Service implementors should override this method to modify the PreparedWebRequest
-		///// to authenticate it.
-		///// </remarks>
-		///// <param name="cancellationToken"></param>
-		///// <returns>
-		///// The response.
-		///// </returns>
-		//public override Task<Response> GetResponseAsync(CancellationToken cancellationToken)
-  //      {
-  //          var request = GetPreparedWebRequest();
+        //      /// <summary>
+        ///// Gets the response.
+        ///// </summary>
+        ///// <remarks>
+        ///// Service implementors should override this method to modify the PreparedWebRequest
+        ///// to authenticate it.
+        ///// </remarks>
+        ///// <param name="cancellationToken"></param>
+        ///// <returns>
+        ///// The response.
+        ///// </returns>
+        //public override Task<Response> GetResponseAsync(CancellationToken cancellationToken)
+        //      {
+        //          var request = GetPreparedWebRequest();
 
-  //          //
-  //          // Authorize it
-  //          //
-  //          var authorization = GetAuthorizationHeaderBasic(Account);
+        //          //
+        //          // Authorize it
+        //          //
+        //          var authorization = GetAuthorizationHeaderBasic(Account);
 
-  //          Mvx.Trace("GetResponseAsync : AuthorizationHeader - " + authorization);
+        //          Mvx.Trace("GetResponseAsync : AuthorizationHeader - " + authorization);
 
-  //          request.Headers.Authorization = AuthenticationHeaderValue.Parse(authorization);
+        //          request.Headers.Authorization = AuthenticationHeaderValue.Parse(authorization);
 
-  //          //
-  //          // Disable 100-Continue: http://blogs.msdn.com/b/shitals/archive/2008/12/27/9254245.aspx
-  //          //
-  //          if (Method == "POST")
-  //          {
-  //              ServicePointManager.Expect100Continue = false;
-  //          }
+        //          //
+        //          // Disable 100-Continue: http://blogs.msdn.com/b/shitals/archive/2008/12/27/9254245.aspx
+        //          //
+        //          if (Method == "POST")
+        //          {
+        //              ServicePointManager.Expect100Continue = false;
+        //          }
 
-  //          if (Multiparts.Count > 0)
-  //          {
-  //              var boundary = "---------------------------" + new Random().Next();
-  //              request.ContentType = "multipart/form-data; boundary=" + boundary;
+        //          if (Multiparts.Count > 0)
+        //          {
+        //              var boundary = "---------------------------" + new Random().Next();
+        //              request.ContentType = "multipart/form-data; boundary=" + boundary;
 
-  //              return Task.Factory
-  //                      .FromAsync<Stream>(request.BeginGetRequestStream, request.EndGetRequestStream, null)
-  //                      .ContinueWith(reqStreamtask => {
+        //              return Task.Factory
+        //                      .FromAsync<Stream>(request.BeginGetRequestStream, request.EndGetRequestStream, null)
+        //                      .ContinueWith(reqStreamtask => {
 
-  //                          using (reqStreamtask.Result)
-  //                          {
-  //                              WriteMultipartFormData(boundary, reqStreamtask.Result);
-  //                          }
+        //                          using (reqStreamtask.Result)
+        //                          {
+        //                              WriteMultipartFormData(boundary, reqStreamtask.Result);
+        //                          }
 
-  //                          return Task.Factory
-  //                                          .FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null)
-  //                                          .ContinueWith(resTask => {
-  //                                              return new Response((HttpWebResponse)resTask.Result);
-  //                                          }, cancellationToken);
-  //                      }, cancellationToken).Unwrap();
-  //          }
-  //          else if (Method == "POST" && Parameters.Count > 0)
-  //          {
-  //              var body = Parameters.FormEncode();
-  //              var bodyData = System.Text.Encoding.UTF8.GetBytes(body);
-  //              request.ContentLength = bodyData.Length;
-  //              request.ContentType = "application/x-www-form-urlencoded";
+        //                          return Task.Factory
+        //                                          .FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null)
+        //                                          .ContinueWith(resTask => {
+        //                                              return new Response((HttpWebResponse)resTask.Result);
+        //                                          }, cancellationToken);
+        //                      }, cancellationToken).Unwrap();
+        //          }
+        //          else if (Method == "POST" && Parameters.Count > 0)
+        //          {
+        //              var body = Parameters.FormEncode();
+        //              var bodyData = System.Text.Encoding.UTF8.GetBytes(body);
+        //              request.ContentLength = bodyData.Length;
+        //              request.ContentType = "application/x-www-form-urlencoded";
 
-  //              return Task.Factory
-  //                      .FromAsync<Stream>(request.BeginGetRequestStream, request.EndGetRequestStream, null)
-  //                      .ContinueWith(reqStreamTask => {
+        //              return Task.Factory
+        //                      .FromAsync<Stream>(request.BeginGetRequestStream, request.EndGetRequestStream, null)
+        //                      .ContinueWith(reqStreamTask => {
 
-  //                          using (reqStreamTask.Result)
-  //                          {
-  //                              reqStreamTask.Result.Write(bodyData, 0, bodyData.Length);
-  //                          }
+        //                          using (reqStreamTask.Result)
+        //                          {
+        //                              reqStreamTask.Result.Write(bodyData, 0, bodyData.Length);
+        //                          }
 
-  //                          return Task.Factory
-  //                                      .FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null)
-  //                                          .ContinueWith(resTask => {
-  //                                              return new Response((HttpWebResponse)resTask.Result);
-  //                                          }, cancellationToken);
-  //                      }, cancellationToken).Unwrap();
-  //          }
-  //          else
-  //          {
-  //              return Task.Factory
-  //                      .FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null)
-  //                      .ContinueWith(resTask => {
-  //                          return new Response((HttpWebResponse)resTask.Result);
-  //                      }, cancellationToken);
-  //          }
-  //      }
+        //                          return Task.Factory
+        //                                      .FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null)
+        //                                          .ContinueWith(resTask => {
+        //                                              return new Response((HttpWebResponse)resTask.Result);
+        //                                          }, cancellationToken);
+        //                      }, cancellationToken).Unwrap();
+        //          }
+        //          else
+        //          {
+        //              return Task.Factory
+        //                      .FromAsync<WebResponse>(request.BeginGetResponse, request.EndGetResponse, null)
+        //                      .ContinueWith(resTask => {
+        //                          return new Response((HttpWebResponse)resTask.Result);
+        //                      }, cancellationToken);
+        //          }
+        //      }
 
         /// <summary>
         /// Gets an authenticated HTTP Authorization header.
