@@ -15,7 +15,7 @@ namespace MvvX.Plugins.OAuthClient
             get
             {
                 if (account == null)
-                    return null;
+                    return new Dictionary<string, string>();
                 else
                     return account.Properties;
             }

@@ -3,9 +3,6 @@ using Android.Widget;
 using Android.OS;
 using System;
 using System.Threading.Tasks;
-using System.Json;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace MvvX.Plugins.OAuthClient.Sample.Droid
 {

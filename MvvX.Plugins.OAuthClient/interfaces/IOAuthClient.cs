@@ -7,13 +7,7 @@ namespace MvvX.Plugins.OAuthClient
     {
         bool AllowCancel { get; set; }
 
-        //string AccessTokenName { get; set; }
-
         string ClientId { get; }
-
-        //bool DoNotEscapeScope { get; set; }
-
-        //Dictionary<string, string> RequestParameters { get; }
 
         event EventHandler<IAuthenticatorCompletedEventArgs> Completed;
 
@@ -34,7 +28,7 @@ namespace MvvX.Plugins.OAuthClient
         /// <param name="scope"></param>
         /// <param name="authorizeUrl"></param>
         /// <param name="redirectUrl"></param>
-        void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, Uri redirectUrl); //, GetUsernameAsyncFunc getUsernameAsync = null);
+        void New(object parameter, string accountStoreKeyName, string clientId, string scope, Uri authorizeUrl, Uri redirectUrl);
 
         /// <summary>
         /// 
@@ -47,7 +41,7 @@ namespace MvvX.Plugins.OAuthClient
         /// <param name="authorizeUrl"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="accessTokenUrl"></param>
-        void New(object parameter, string accountStoreKeyName, string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl); //, GetUsernameAsyncFunc getUsernameAsync = null);
+        void New(object parameter, string accountStoreKeyName, string clientId, string clientSecret, string scope, Uri authorizeUrl, Uri redirectUrl, Uri accessTokenUrl);
 
         /// <summary>
         /// Instanciates a PKCE flow authentication
