@@ -15,7 +15,7 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 {
 	
 	
-	[System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
 	public partial class Resource
 	{
 		
@@ -26,12 +26,263 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::MvvX.Plugins.IOAuthClient.Resource.Animation.slide_in_right = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Animation.slide_in_right;
+			global::MvvX.Plugins.IOAuthClient.Resource.Animation.slide_out_left = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Animation.slide_out_left;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.font = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.font;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontProviderAuthority = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderAuthority;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontProviderCerts = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderCerts;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontProviderFetchStrategy = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontProviderFetchTimeout = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontProviderPackage = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderPackage;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontProviderQuery = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderQuery;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontStyle = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontStyle;
+			global::MvvX.Plugins.IOAuthClient.Resource.Attribute.fontWeight = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontWeight;
+			global::MvvX.Plugins.IOAuthClient.Resource.Boolean.abc_action_bar_embed_tabs = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::MvvX.Plugins.IOAuthClient.Resource.Color.notification_action_color_filter = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.notification_action_color_filter;
+			global::MvvX.Plugins.IOAuthClient.Resource.Color.notification_icon_bg_color = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.notification_icon_bg_color;
+			global::MvvX.Plugins.IOAuthClient.Resource.Color.ripple_material_light = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.ripple_material_light;
+			global::MvvX.Plugins.IOAuthClient.Resource.Color.secondary_text_default_material_light = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.secondary_text_default_material_light;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.compat_button_inset_horizontal_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.compat_button_inset_vertical_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.compat_button_padding_horizontal_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.compat_button_padding_vertical_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.compat_control_corner_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_control_corner_material;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_action_icon_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_action_icon_size;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_action_text_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_action_text_size;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_big_circle_margin = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_content_margin_start = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_content_margin_start;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_large_icon_height = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_large_icon_height;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_large_icon_width = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_large_icon_width;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_main_column_padding_top = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_media_narrow_margin = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_right_icon_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_right_icon_size;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_right_side_padding_top = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_small_icon_background_padding = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_small_icon_size_as_large = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_subtext_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_subtext_size;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_top_pad = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_top_pad;
+			global::MvvX.Plugins.IOAuthClient.Resource.Dimension.notification_top_pad_large_text = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.ic_arrow_back = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.ic_arrow_back;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_action_background = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_action_background;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_bg_low = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_low;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_bg_low_normal = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_bg_low_pressed = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_bg_normal = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_normal;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_bg_normal_pressed = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_icon_background = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_icon_background;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_template_icon_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_template_icon_low_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notification_tile_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_tile_bg;
+			global::MvvX.Plugins.IOAuthClient.Resource.Drawable.notify_panel_notification_icon_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.actions = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.actions;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.action_container = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_container;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.action_divider = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_divider;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.action_image = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_image;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.action_text = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_text;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.async = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.async;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.blocking = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.blocking;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.chronometer = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.chronometer;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.forever = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.forever;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.icon = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.icon;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.icon_group = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.icon_group;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.info = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.info;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.italic = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.italic;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.line1 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.line1;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.line3 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.line3;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.normal = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.normal;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.notification_background = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.notification_background;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.notification_main_column = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.notification_main_column;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.notification_main_column_container = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.notification_main_column_container;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.right_icon = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.right_icon;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.right_side = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.right_side;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.text = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.text;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.text2 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.text2;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.time = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.time;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.title = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.title;
+			global::MvvX.Plugins.IOAuthClient.Resource.Id.webview = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.webview;
+			global::MvvX.Plugins.IOAuthClient.Resource.Integer.status_bar_notification_info_maxnum = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::MvvX.Plugins.IOAuthClient.Resource.Layout.activity_webview = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.activity_webview;
+			global::MvvX.Plugins.IOAuthClient.Resource.Layout.notification_action = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_action;
+			global::MvvX.Plugins.IOAuthClient.Resource.Layout.notification_action_tombstone = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_action_tombstone;
+			global::MvvX.Plugins.IOAuthClient.Resource.Layout.notification_template_custom_big = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_custom_big;
+			global::MvvX.Plugins.IOAuthClient.Resource.Layout.notification_template_icon_group = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_icon_group;
+			global::MvvX.Plugins.IOAuthClient.Resource.Layout.notification_template_part_chronometer = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::MvvX.Plugins.IOAuthClient.Resource.Layout.notification_template_part_time = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_part_time;
+			global::MvvX.Plugins.IOAuthClient.Resource.String.status_bar_notification_info_overflow = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::MvvX.Plugins.IOAuthClient.Resource.String.title_activity_webview = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.String.title_activity_webview;
+			global::MvvX.Plugins.IOAuthClient.Resource.Style.TextAppearance_Compat_Notification = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::MvvX.Plugins.IOAuthClient.Resource.Style.TextAppearance_Compat_Notification_Info = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::MvvX.Plugins.IOAuthClient.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::MvvX.Plugins.IOAuthClient.Resource.Style.TextAppearance_Compat_Notification_Time = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::MvvX.Plugins.IOAuthClient.Resource.Style.TextAppearance_Compat_Notification_Title = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::MvvX.Plugins.IOAuthClient.Resource.Style.Widget_Compat_NotificationActionContainer = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::MvvX.Plugins.IOAuthClient.Resource.Style.Widget_Compat_NotificationActionText = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamily = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamilyFont = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamilyFont_font = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamilyFont_fontStyle = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamilyFont_fontWeight = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamily_fontProviderAuthority = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamily_fontProviderCerts = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamily_fontProviderPackage = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::MvvX.Plugins.IOAuthClient.Resource.Styleable.FontFamily_fontProviderQuery = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
 			global::PCLCrypto.Resource.String.ApplicationName = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.String.ApplicationName;
 			global::PCLCrypto.Resource.String.Hello = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.String.Hello;
+			global::Xamarin.Auth.Resource.Animation.slide_in_right = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Animation.slide_in_right;
+			global::Xamarin.Auth.Resource.Animation.slide_out_left = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Animation.slide_out_left;
+			global::Xamarin.Auth.Resource.Attribute.font = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.font;
+			global::Xamarin.Auth.Resource.Attribute.fontProviderAuthority = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Xamarin.Auth.Resource.Attribute.fontProviderCerts = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderCerts;
+			global::Xamarin.Auth.Resource.Attribute.fontProviderFetchStrategy = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Xamarin.Auth.Resource.Attribute.fontProviderFetchTimeout = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Xamarin.Auth.Resource.Attribute.fontProviderPackage = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderPackage;
+			global::Xamarin.Auth.Resource.Attribute.fontProviderQuery = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontProviderQuery;
+			global::Xamarin.Auth.Resource.Attribute.fontStyle = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontStyle;
+			global::Xamarin.Auth.Resource.Attribute.fontWeight = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Attribute.fontWeight;
+			global::Xamarin.Auth.Resource.Color.notification_action_color_filter = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.notification_action_color_filter;
+			global::Xamarin.Auth.Resource.Color.notification_icon_bg_color = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.notification_icon_bg_color;
+			global::Xamarin.Auth.Resource.Color.ripple_material_light = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.ripple_material_light;
+			global::Xamarin.Auth.Resource.Color.secondary_text_default_material_light = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Color.secondary_text_default_material_light;
+			global::Xamarin.Auth.Resource.Dimension.compat_button_inset_horizontal_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Xamarin.Auth.Resource.Dimension.compat_button_inset_vertical_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Xamarin.Auth.Resource.Dimension.compat_button_padding_horizontal_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Xamarin.Auth.Resource.Dimension.compat_button_padding_vertical_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Xamarin.Auth.Resource.Dimension.compat_control_corner_material = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Xamarin.Auth.Resource.Dimension.notification_action_icon_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Xamarin.Auth.Resource.Dimension.notification_action_text_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_action_text_size;
+			global::Xamarin.Auth.Resource.Dimension.notification_big_circle_margin = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Xamarin.Auth.Resource.Dimension.notification_content_margin_start = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Xamarin.Auth.Resource.Dimension.notification_large_icon_height = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Xamarin.Auth.Resource.Dimension.notification_large_icon_width = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Xamarin.Auth.Resource.Dimension.notification_main_column_padding_top = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Xamarin.Auth.Resource.Dimension.notification_media_narrow_margin = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Xamarin.Auth.Resource.Dimension.notification_right_icon_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Xamarin.Auth.Resource.Dimension.notification_right_side_padding_top = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Xamarin.Auth.Resource.Dimension.notification_small_icon_background_padding = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Xamarin.Auth.Resource.Dimension.notification_small_icon_size_as_large = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Xamarin.Auth.Resource.Dimension.notification_subtext_size = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_subtext_size;
+			global::Xamarin.Auth.Resource.Dimension.notification_top_pad = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_top_pad;
+			global::Xamarin.Auth.Resource.Dimension.notification_top_pad_large_text = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Xamarin.Auth.Resource.Drawable.ic_arrow_back = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.ic_arrow_back;
+			global::Xamarin.Auth.Resource.Drawable.notification_action_background = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_action_background;
+			global::Xamarin.Auth.Resource.Drawable.notification_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg;
+			global::Xamarin.Auth.Resource.Drawable.notification_bg_low = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_low;
+			global::Xamarin.Auth.Resource.Drawable.notification_bg_low_normal = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Xamarin.Auth.Resource.Drawable.notification_bg_low_pressed = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Xamarin.Auth.Resource.Drawable.notification_bg_normal = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_normal;
+			global::Xamarin.Auth.Resource.Drawable.notification_bg_normal_pressed = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Xamarin.Auth.Resource.Drawable.notification_icon_background = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_icon_background;
+			global::Xamarin.Auth.Resource.Drawable.notification_template_icon_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Xamarin.Auth.Resource.Drawable.notification_template_icon_low_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Xamarin.Auth.Resource.Drawable.notification_tile_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notification_tile_bg;
+			global::Xamarin.Auth.Resource.Drawable.notify_panel_notification_icon_bg = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.Auth.Resource.Id.action_container = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_container;
+			global::Xamarin.Auth.Resource.Id.action_divider = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_divider;
+			global::Xamarin.Auth.Resource.Id.action_image = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_image;
+			global::Xamarin.Auth.Resource.Id.action_text = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.action_text;
+			global::Xamarin.Auth.Resource.Id.actions = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.actions;
+			global::Xamarin.Auth.Resource.Id.async = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.async;
+			global::Xamarin.Auth.Resource.Id.blocking = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.blocking;
+			global::Xamarin.Auth.Resource.Id.chronometer = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.chronometer;
+			global::Xamarin.Auth.Resource.Id.forever = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.forever;
+			global::Xamarin.Auth.Resource.Id.icon = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.icon;
+			global::Xamarin.Auth.Resource.Id.icon_group = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.icon_group;
+			global::Xamarin.Auth.Resource.Id.info = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.info;
+			global::Xamarin.Auth.Resource.Id.italic = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.italic;
+			global::Xamarin.Auth.Resource.Id.line1 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.line1;
+			global::Xamarin.Auth.Resource.Id.line3 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.line3;
+			global::Xamarin.Auth.Resource.Id.normal = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.normal;
+			global::Xamarin.Auth.Resource.Id.notification_background = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.notification_background;
+			global::Xamarin.Auth.Resource.Id.notification_main_column = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.notification_main_column;
+			global::Xamarin.Auth.Resource.Id.notification_main_column_container = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.notification_main_column_container;
+			global::Xamarin.Auth.Resource.Id.right_icon = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.right_icon;
+			global::Xamarin.Auth.Resource.Id.right_side = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.right_side;
+			global::Xamarin.Auth.Resource.Id.text = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.text;
+			global::Xamarin.Auth.Resource.Id.text2 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.text2;
+			global::Xamarin.Auth.Resource.Id.time = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.time;
+			global::Xamarin.Auth.Resource.Id.title = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.title;
+			global::Xamarin.Auth.Resource.Id.webview = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Id.webview;
+			global::Xamarin.Auth.Resource.Integer.status_bar_notification_info_maxnum = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Xamarin.Auth.Resource.Layout.activity_webview = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.activity_webview;
+			global::Xamarin.Auth.Resource.Layout.notification_action = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_action;
+			global::Xamarin.Auth.Resource.Layout.notification_action_tombstone = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_action_tombstone;
+			global::Xamarin.Auth.Resource.Layout.notification_template_custom_big = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_custom_big;
+			global::Xamarin.Auth.Resource.Layout.notification_template_icon_group = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_icon_group;
+			global::Xamarin.Auth.Resource.Layout.notification_template_part_chronometer = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Xamarin.Auth.Resource.Layout.notification_template_part_time = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Auth.Resource.String.status_bar_notification_info_overflow = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Xamarin.Auth.Resource.String.title_activity_webview = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.String.title_activity_webview;
+			global::Xamarin.Auth.Resource.Style.TextAppearance_Compat_Notification = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Xamarin.Auth.Resource.Style.TextAppearance_Compat_Notification_Info = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Xamarin.Auth.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Xamarin.Auth.Resource.Style.TextAppearance_Compat_Notification_Time = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Xamarin.Auth.Resource.Style.TextAppearance_Compat_Notification_Title = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Xamarin.Auth.Resource.Style.Widget_Compat_NotificationActionContainer = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Xamarin.Auth.Resource.Style.Widget_Compat_NotificationActionText = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Xamarin.Auth.Resource.Styleable.FontFamily = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily;
+			global::Xamarin.Auth.Resource.Styleable.FontFamily_fontProviderAuthority = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Xamarin.Auth.Resource.Styleable.FontFamily_fontProviderCerts = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Xamarin.Auth.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Xamarin.Auth.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Xamarin.Auth.Resource.Styleable.FontFamily_fontProviderPackage = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Xamarin.Auth.Resource.Styleable.FontFamily_fontProviderQuery = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Xamarin.Auth.Resource.Styleable.FontFamilyFont = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont;
+			global::Xamarin.Auth.Resource.Styleable.FontFamilyFont_font = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Xamarin.Auth.Resource.Styleable.FontFamilyFont_fontStyle = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Xamarin.Auth.Resource.Styleable.FontFamilyFont_fontWeight = global::MvvX.Plugins.IOAuthClient.Sample.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+		}
+		
+		public partial class Animation
+		{
+			
+			// aapt resource value: 0x7F010000
+			public const int slide_in_right = 2130771968;
+			
+			// aapt resource value: 0x7F010001
+			public const int slide_out_left = 2130771969;
+			
+			static Animation()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Animation()
+			{
+			}
 		}
 		
 		public partial class Attribute
 		{
+			
+			// aapt resource value: 0x7F020000
+			public const int font = 2130837504;
+			
+			// aapt resource value: 0x7F020001
+			public const int fontProviderAuthority = 2130837505;
+			
+			// aapt resource value: 0x7F020002
+			public const int fontProviderCerts = 2130837506;
+			
+			// aapt resource value: 0x7F020003
+			public const int fontProviderFetchStrategy = 2130837507;
+			
+			// aapt resource value: 0x7F020004
+			public const int fontProviderFetchTimeout = 2130837508;
+			
+			// aapt resource value: 0x7F020005
+			public const int fontProviderPackage = 2130837509;
+			
+			// aapt resource value: 0x7F020006
+			public const int fontProviderQuery = 2130837510;
+			
+			// aapt resource value: 0x7F020007
+			public const int fontStyle = 2130837511;
+			
+			// aapt resource value: 0x7F020008
+			public const int fontWeight = 2130837512;
 			
 			static Attribute()
 			{
@@ -43,11 +294,164 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 			}
 		}
 		
+		public partial class Boolean
+		{
+			
+			// aapt resource value: 0x7F030000
+			public const int abc_action_bar_embed_tabs = 2130903040;
+			
+			static Boolean()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Boolean()
+			{
+			}
+		}
+		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7F040000
+			public const int notification_action_color_filter = 2130968576;
+			
+			// aapt resource value: 0x7F040001
+			public const int notification_icon_bg_color = 2130968577;
+			
+			// aapt resource value: 0x7F040002
+			public const int ripple_material_light = 2130968578;
+			
+			// aapt resource value: 0x7F040003
+			public const int secondary_text_default_material_light = 2130968579;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7F050000
+			public const int compat_button_inset_horizontal_material = 2131034112;
+			
+			// aapt resource value: 0x7F050001
+			public const int compat_button_inset_vertical_material = 2131034113;
+			
+			// aapt resource value: 0x7F050002
+			public const int compat_button_padding_horizontal_material = 2131034114;
+			
+			// aapt resource value: 0x7F050003
+			public const int compat_button_padding_vertical_material = 2131034115;
+			
+			// aapt resource value: 0x7F050004
+			public const int compat_control_corner_material = 2131034116;
+			
+			// aapt resource value: 0x7F050005
+			public const int notification_action_icon_size = 2131034117;
+			
+			// aapt resource value: 0x7F050006
+			public const int notification_action_text_size = 2131034118;
+			
+			// aapt resource value: 0x7F050007
+			public const int notification_big_circle_margin = 2131034119;
+			
+			// aapt resource value: 0x7F050008
+			public const int notification_content_margin_start = 2131034120;
+			
+			// aapt resource value: 0x7F050009
+			public const int notification_large_icon_height = 2131034121;
+			
+			// aapt resource value: 0x7F05000A
+			public const int notification_large_icon_width = 2131034122;
+			
+			// aapt resource value: 0x7F05000B
+			public const int notification_main_column_padding_top = 2131034123;
+			
+			// aapt resource value: 0x7F05000C
+			public const int notification_media_narrow_margin = 2131034124;
+			
+			// aapt resource value: 0x7F05000D
+			public const int notification_right_icon_size = 2131034125;
+			
+			// aapt resource value: 0x7F05000E
+			public const int notification_right_side_padding_top = 2131034126;
+			
+			// aapt resource value: 0x7F05000F
+			public const int notification_small_icon_background_padding = 2131034127;
+			
+			// aapt resource value: 0x7F050010
+			public const int notification_small_icon_size_as_large = 2131034128;
+			
+			// aapt resource value: 0x7F050011
+			public const int notification_subtext_size = 2131034129;
+			
+			// aapt resource value: 0x7F050012
+			public const int notification_top_pad = 2131034130;
+			
+			// aapt resource value: 0x7F050013
+			public const int notification_top_pad_large_text = 2131034131;
+			
+			static Dimension()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Dimension()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
-			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			// aapt resource value: 0x7F060001
+			public const int Icon = 2131099649;
+			
+			// aapt resource value: 0x7F060000
+			public const int ic_arrow_back = 2131099648;
+			
+			// aapt resource value: 0x7F060002
+			public const int notification_action_background = 2131099650;
+			
+			// aapt resource value: 0x7F060003
+			public const int notification_bg = 2131099651;
+			
+			// aapt resource value: 0x7F060004
+			public const int notification_bg_low = 2131099652;
+			
+			// aapt resource value: 0x7F060005
+			public const int notification_bg_low_normal = 2131099653;
+			
+			// aapt resource value: 0x7F060006
+			public const int notification_bg_low_pressed = 2131099654;
+			
+			// aapt resource value: 0x7F060007
+			public const int notification_bg_normal = 2131099655;
+			
+			// aapt resource value: 0x7F060008
+			public const int notification_bg_normal_pressed = 2131099656;
+			
+			// aapt resource value: 0x7F060009
+			public const int notification_icon_background = 2131099657;
+			
+			// aapt resource value: 0x7F06000A
+			public const int notification_template_icon_bg = 2131099658;
+			
+			// aapt resource value: 0x7F06000B
+			public const int notification_template_icon_low_bg = 2131099659;
+			
+			// aapt resource value: 0x7F06000C
+			public const int notification_tile_bg = 2131099660;
+			
+			// aapt resource value: 0x7F06000D
+			public const int notify_panel_notification_icon_bg = 2131099661;
 			
 			static Drawable()
 			{
@@ -62,11 +466,89 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int FacebookButton = 2131034112;
+			// aapt resource value: 0x7F070006
+			public const int actions = 2131165190;
 			
-			// aapt resource value: 0x7f050001
-			public const int FacebookButtonNoCancel = 2131034113;
+			// aapt resource value: 0x7F070002
+			public const int action_container = 2131165186;
+			
+			// aapt resource value: 0x7F070003
+			public const int action_divider = 2131165187;
+			
+			// aapt resource value: 0x7F070004
+			public const int action_image = 2131165188;
+			
+			// aapt resource value: 0x7F070005
+			public const int action_text = 2131165189;
+			
+			// aapt resource value: 0x7F070007
+			public const int async = 2131165191;
+			
+			// aapt resource value: 0x7F070008
+			public const int blocking = 2131165192;
+			
+			// aapt resource value: 0x7F070009
+			public const int chronometer = 2131165193;
+			
+			// aapt resource value: 0x7F070000
+			public const int FacebookButton = 2131165184;
+			
+			// aapt resource value: 0x7F070001
+			public const int FacebookButtonNoCancel = 2131165185;
+			
+			// aapt resource value: 0x7F07000A
+			public const int forever = 2131165194;
+			
+			// aapt resource value: 0x7F07000B
+			public const int icon = 2131165195;
+			
+			// aapt resource value: 0x7F07000C
+			public const int icon_group = 2131165196;
+			
+			// aapt resource value: 0x7F07000D
+			public const int info = 2131165197;
+			
+			// aapt resource value: 0x7F07000E
+			public const int italic = 2131165198;
+			
+			// aapt resource value: 0x7F07000F
+			public const int line1 = 2131165199;
+			
+			// aapt resource value: 0x7F070010
+			public const int line3 = 2131165200;
+			
+			// aapt resource value: 0x7F070011
+			public const int normal = 2131165201;
+			
+			// aapt resource value: 0x7F070012
+			public const int notification_background = 2131165202;
+			
+			// aapt resource value: 0x7F070013
+			public const int notification_main_column = 2131165203;
+			
+			// aapt resource value: 0x7F070014
+			public const int notification_main_column_container = 2131165204;
+			
+			// aapt resource value: 0x7F070015
+			public const int right_icon = 2131165205;
+			
+			// aapt resource value: 0x7F070016
+			public const int right_side = 2131165206;
+			
+			// aapt resource value: 0x7F070017
+			public const int text = 2131165207;
+			
+			// aapt resource value: 0x7F070018
+			public const int text2 = 2131165208;
+			
+			// aapt resource value: 0x7F070019
+			public const int time = 2131165209;
+			
+			// aapt resource value: 0x7F07001A
+			public const int title = 2131165210;
+			
+			// aapt resource value: 0x7F07001B
+			public const int webview = 2131165211;
 			
 			static Id()
 			{
@@ -78,11 +560,48 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 			}
 		}
 		
+		public partial class Integer
+		{
+			
+			// aapt resource value: 0x7F080000
+			public const int status_bar_notification_info_maxnum = 2131230720;
+			
+			static Integer()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Integer()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
-			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			// aapt resource value: 0x7F090000
+			public const int activity_webview = 2131296256;
+			
+			// aapt resource value: 0x7F090001
+			public const int Main = 2131296257;
+			
+			// aapt resource value: 0x7F090002
+			public const int notification_action = 2131296258;
+			
+			// aapt resource value: 0x7F090003
+			public const int notification_action_tombstone = 2131296259;
+			
+			// aapt resource value: 0x7F090004
+			public const int notification_template_custom_big = 2131296260;
+			
+			// aapt resource value: 0x7F090005
+			public const int notification_template_icon_group = 2131296261;
+			
+			// aapt resource value: 0x7F090006
+			public const int notification_template_part_chronometer = 2131296262;
+			
+			// aapt resource value: 0x7F090007
+			public const int notification_template_part_time = 2131296263;
 			
 			static Layout()
 			{
@@ -97,17 +616,23 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7F0A0000
+			public const int ApplicationName = 2131361792;
 			
-			// aapt resource value: 0x7f040002
-			public const int Facebook = 2130968578;
+			// aapt resource value: 0x7F0A0001
+			public const int Facebook = 2131361793;
 			
-			// aapt resource value: 0x7f040003
-			public const int FacebookNoCancel = 2130968579;
+			// aapt resource value: 0x7F0A0002
+			public const int FacebookNoCancel = 2131361794;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7F0A0003
+			public const int Hello = 2131361795;
+			
+			// aapt resource value: 0x7F0A0004
+			public const int status_bar_notification_info_overflow = 2131361796;
+			
+			// aapt resource value: 0x7F0A0005
+			public const int title_activity_webview = 2131361797;
 			
 			static String()
 			{
@@ -115,6 +640,95 @@ namespace MvvX.Plugins.IOAuthClient.Sample.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7F0B0000
+			public const int TextAppearance_Compat_Notification = 2131427328;
+			
+			// aapt resource value: 0x7F0B0001
+			public const int TextAppearance_Compat_Notification_Info = 2131427329;
+			
+			// aapt resource value: 0x7F0B0002
+			public const int TextAppearance_Compat_Notification_Line2 = 2131427330;
+			
+			// aapt resource value: 0x7F0B0003
+			public const int TextAppearance_Compat_Notification_Time = 2131427331;
+			
+			// aapt resource value: 0x7F0B0004
+			public const int TextAppearance_Compat_Notification_Title = 2131427332;
+			
+			// aapt resource value: 0x7F0B0005
+			public const int Widget_Compat_NotificationActionContainer = 2131427333;
+			
+			// aapt resource value: 0x7F0B0006
+			public const int Widget_Compat_NotificationActionText = 2131427334;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			// aapt resource value: { 0x7F020001,0x7F020002,0x7F020003,0x7F020004,0x7F020005,0x7F020006 }
+			public static int[] FontFamily = new int[] {
+					2130837505,
+					2130837506,
+					2130837507,
+					2130837508,
+					2130837509,
+					2130837510};
+			
+			// aapt resource value: { 0x7F020000,0x7F020007,0x7F020008 }
+			public static int[] FontFamilyFont = new int[] {
+					2130837504,
+					2130837511,
+					2130837512};
+			
+			// aapt resource value: 0
+			public const int FontFamilyFont_font = 0;
+			
+			// aapt resource value: 1
+			public const int FontFamilyFont_fontStyle = 1;
+			
+			// aapt resource value: 2
+			public const int FontFamilyFont_fontWeight = 2;
+			
+			// aapt resource value: 0
+			public const int FontFamily_fontProviderAuthority = 0;
+			
+			// aapt resource value: 1
+			public const int FontFamily_fontProviderCerts = 1;
+			
+			// aapt resource value: 2
+			public const int FontFamily_fontProviderFetchStrategy = 2;
+			
+			// aapt resource value: 3
+			public const int FontFamily_fontProviderFetchTimeout = 3;
+			
+			// aapt resource value: 4
+			public const int FontFamily_fontProviderPackage = 4;
+			
+			// aapt resource value: 5
+			public const int FontFamily_fontProviderQuery = 5;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}

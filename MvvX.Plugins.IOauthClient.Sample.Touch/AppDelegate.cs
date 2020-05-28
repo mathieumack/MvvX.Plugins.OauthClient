@@ -3,7 +3,7 @@ using System.Json;
 using System.Threading.Tasks;
 using Foundation;
 using MonoTouch.Dialog;
-using MvvX.Plugins.IOAuthClient.Touch;
+using MvvX.Plugins.IOAuthClient;
 using UIKit;
 
 namespace MvvX.Plugins.IOauthClient.Sample.Touch
