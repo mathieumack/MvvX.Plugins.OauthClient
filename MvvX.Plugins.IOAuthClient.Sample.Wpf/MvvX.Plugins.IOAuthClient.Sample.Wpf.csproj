@@ -129,10 +129,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvX.Plugins.IOAuthClient.Wpf\MvvX.Plugins.IOAuthClient.Wpf.csproj">
-      <Project>{c31d883f-8a19-433c-ba68-8a43e9bb4e5c}</Project>
-      <Name>MvvX.Plugins.IOAuthClient.Wpf</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MvvX.Plugins.IOAuthClient\MvvX.Plugins.IOAuthClient.csproj">
       <Project>{f35bf06a-b2bc-4211-b25b-c4419b5ead2d}</Project>
       <Name>MvvX.Plugins.IOAuthClient</Name>

@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using MvvX.Plugins.IOAuthClient.Droid;
 using System;
 using System.Threading.Tasks;
 using System.Json;

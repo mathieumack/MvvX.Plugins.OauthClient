@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Windows;
-using MvvX.Plugins.IOAuthClient.Wpf;
+using MvvX.Plugins.IOAuthClient;
 
 namespace MvvX.Plugins.IOAuthClient.Sample.Wpf
 {

@@ -134,12 +134,6 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MvvX.Plugins.IOAuthClient.Touch\MvvX.Plugins.IOAuthClient.Touch.csproj">
-      <Project>{a3963e65-eb2c-467d-87e2-7ab3df96d979}</Project>
-      <Name>MvvX.Plugins.IOAuthClient.Touch</Name>
-      <IsAppExtension>false</IsAppExtension>
-      <IsWatchApp>false</IsWatchApp>
-    </ProjectReference>
     <ProjectReference Include="..\MvvX.Plugins.IOAuthClient\MvvX.Plugins.IOAuthClient.csproj">
       <Project>{f35bf06a-b2bc-4211-b25b-c4419b5ead2d}</Project>
       <Name>MvvX.Plugins.IOAuthClient</Name>
