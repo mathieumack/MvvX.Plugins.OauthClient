@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">MvvX.Plugins.IOauthClient.Sample.Droid</string>
-    <string name="Facebook">Login</string>
-    <string name="FacebookNoCancel">Login without cancel</string>
-</resources>
